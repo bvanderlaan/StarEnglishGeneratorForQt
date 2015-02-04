@@ -15,6 +15,8 @@ git://github.com/bvanderlaan/StarEnglishGeneratorForQt.git
 Documentation
 -------------
 
+### The Python Version
+
 This script takes a TS file and generates the star english translation strings.
 
 You need to provide the TS file name to update.<br>
@@ -24,6 +26,11 @@ Example:<br>
 ```
 	
 It will update myApp_fo.ts to use Star English strings and will save the orignally passed in file as myApp_fo.ts.org.
+
+### The C++/Qt Version
+
+This tool presents you with an interface which allows to you pick the source translation file and the name/location for the generated [Star-English] output file.
+The source file will remain unchanged unless you tell the tool to output to the same file when picking the output name/location.
 
 
 [website]: http://bradvanderlaan.ca
