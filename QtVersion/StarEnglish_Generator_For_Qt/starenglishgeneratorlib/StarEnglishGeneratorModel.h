@@ -45,7 +45,7 @@ namespace ImaginativeThinking
         signals:
             void sourceFileChanged( QString sourceFile );
             void destinationFileChanged( QString destinationFile );
-            void starEnglishFileGenerated();
+            void starEnglishFileGenerationCompleted( bool isSuccess );
 
         public slots:
             bool generate();

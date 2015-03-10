@@ -19,6 +19,7 @@
 #include <QFile>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
+
 #include <QDebug>
 
 using namespace ImaginativeThinking::Translation;
@@ -83,12 +84,10 @@ bool StarEnglishGeneratorModel::generate()
             QFile destination( m_destinationFile.absoluteFilePath() );
 
             ret = m_generator->generate( &source, &destination );
-            if ( ret )
-            {
-                emit starEnglishFileGenerated();
-            }
         }
     }
+
+    emit starEnglishFileGenerationCompleted( ret );
     return ret;
 }
 bool StarEnglishGeneratorModel::areSourceAndDestinationFilesValid() const

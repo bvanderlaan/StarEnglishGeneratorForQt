@@ -38,6 +38,15 @@ namespace ImaginativeThinking
                 void testGeneratingStarEnglishWhenEntryIsAlreadyTranslated();
                 void testGeneratingStarEnglishWhenTranslationAttributeNotUnfinished();
                 void testGeneratingStarEnglishMultipleContextMultipleMessages();
+                void testGeneratingStarEnglishWithMissOrderedTags();
+                void testGeneratingStarEnglishWithMalFormedXML();
+                void testGeneratingStarEnglishWithIncorrectXML();
+                void testToMakeSureThatTheGeneratorSwitchedTheLanguageTypeAttribute();
+                void testToMakeSureThatTheGeneratorHandelsHTMLStrings();
+                void testToMakeSureThatTheGeneratorHandelsTheLocationTagUsedByQML();
+                void testToMakeSureThatTheGeneratorHandlesContextComments();
+                void testToMakeSureThatTheGeneratorHandelsExtraComments();
+                void testGeneratingStarEnglishWithNumerusFormSourceString();
             };
         }
     }

@@ -23,7 +23,7 @@ import ca.imaginativethinking.translation 1.0
 ApplicationWindow {
     title: qsTr("Star English Generator For Qt")
     width: 640
-    height: 480
+    height: 200
     visible: true
     menuBar: mainMenu
 
@@ -31,7 +31,7 @@ ApplicationWindow {
         id: mainMenu
 
         Menu {
-            title: qsTr("&File")
+            title: qsTr("&File", "This is just showing how a context comment looks in the TS file.")
 
             MenuItem {
                 action: openTSFileAction
@@ -67,7 +67,8 @@ ApplicationWindow {
         id: generateStarEnglishAction
         text: qsTr("&Generate Star English Trasnlation File")
         onTriggered: {
-
+            generator.destinationFile = mainForm.outputTrasnlationFile
+            generator.generate()
         }
     }
     Action {
@@ -97,25 +98,28 @@ ApplicationWindow {
         generateStarEnglishAction: generateStarEnglishAction
         openSourceTrasnlationFileAction: openTSFileAction
         sourceTrasnlationFile: generator.sourceFile
-        outputTrasnlationFile: generator.destinationFile
     }
     FileDialog {
         id: openFileDialog
         title: qsTr("Choose a Translation File")
         nameFilters: ["Trasnlation Files (*.ts)", "All files (*)"]
         onAccepted: {
-            generator.sourceFile = openFileDialog.fileUrl
-            console.log("DEBUG:" + generator.sourceFile )
+            generator.sourceFile = openFileDialog.fileUrl.toString().substring(8) // this removes the "file:///"
         }
     }
     StarEnglishGenerator {
         id: generator
+        onStarEnglishFileGenerationCompleted: {
+            if ( isSuccess ) {
+                messageDialog.show( "The Star English Translation Source (TS) file has been generated." )
+            } else {
+                messageDialog.show( "The Star English Generation failed." )
+            }
+        }
     }
-
-
     MessageDialog {
         id: messageDialog
-        title: qsTr("May I have your attention, please?")
+        title: qsTr("Star English Generator")
 
         function show(caption) {
             messageDialog.text = caption;

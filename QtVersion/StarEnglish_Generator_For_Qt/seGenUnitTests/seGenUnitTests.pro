@@ -1,5 +1,5 @@
 TEMPLATE = app
-QT       += core testlib
+QT       += core testlib xml
 QT       -= gui
 
 CONFIG   += console
@@ -21,7 +21,16 @@ HEADERS += \
     StarEnglishGeneratorModelTester.h
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
-INCLUDEPATH += $$PWD/../starenglishgeneratorlib
 
-CONFIG(release, debug|release): LIBS += -L../starenglishgeneratorlib/release/ -lstarenglishgeneratorlib
-else:CONFIG(debug, debug|release): LIBS += -L../starenglishgeneratorlib/debug/ -lstarenglishgeneratorlib
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../starenglishgeneratorlib/release/ -lstarenglishgeneratorlib
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../starenglishgeneratorlib/debug/ -lstarenglishgeneratorlib
+else:unix: LIBS += -L$$OUT_PWD/../starenglishgeneratorlib/ -lstarenglishgeneratorlib
+
+INCLUDEPATH += $$PWD/../starenglishgeneratorlib
+DEPENDPATH += $$PWD/../starenglishgeneratorlib
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../starenglishgeneratorlib/release/libstarenglishgeneratorlib.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../starenglishgeneratorlib/debug/libstarenglishgeneratorlib.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../starenglishgeneratorlib/release/starenglishgeneratorlib.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../starenglishgeneratorlib/debug/starenglishgeneratorlib.lib
+else:unix: PRE_TARGETDEPS += $$OUT_PWD/../starenglishgeneratorlib/libstarenglishgeneratorlib.a

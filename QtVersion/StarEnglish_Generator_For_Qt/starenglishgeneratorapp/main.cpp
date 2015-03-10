@@ -16,12 +16,12 @@
 
 #include <QApplication>
 #include <QQmlApplicationEngine>
-#include "StarEnglishGenerator.h"
+#include "StarEnglishGeneratorModel.h"
 #include <QQuickItem>
 
 void registerQMLTypes()
 {
-    qmlRegisterType<ImaginativeThinking::Translation::StarEnglishGenerator>("ca.imaginativethinking.translation", 1, 0, "StarEnglishGenerator" );
+    qmlRegisterType<ImaginativeThinking::Translation::StarEnglishGeneratorModel>("ca.imaginativethinking.translation", 1, 0, "StarEnglishGenerator" );
 }
 int main(int argc, char *argv[])
 {

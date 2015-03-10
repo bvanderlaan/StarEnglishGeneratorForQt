@@ -5,3 +5,5 @@ SUBDIRS += starenglishgeneratorapp \
 
 seGenUnitTests.depends = starenglishgeneratorlib
 starenglishgeneratorapp.depends = starenglishgeneratorlib
+
+TRANSLATIONS = starenglish_fr.ts

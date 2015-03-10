@@ -20,6 +20,10 @@
 #include <QObject>
 
 class QIODevice;
+class QXmlStreamWriter;
+class QDomDocument;
+class QDomNode;
+class QDomText;
 namespace ImaginativeThinking
 {
     namespace Translation
@@ -29,10 +33,31 @@ namespace ImaginativeThinking
             Q_OBJECT
 
         public:
-            explicit StarEnglishGenerator(QObject *parent = 0);
+            explicit StarEnglishGenerator( QObject *parent = 0);
             virtual ~StarEnglishGenerator(){}
 
             virtual bool generate( QIODevice* source, QIODevice* destination );
+        private:
+            bool isSourceFileValid( QIODevice* source ) const;
+            bool isValidTranslationXML( QIODevice* source ) const;
+            bool openSourceAndDestinationFiles(QIODevice* source, QIODevice* destination);
+            bool openSourceDom( QIODevice* source );
+            void processSourceFile();
+            void processMessageNode( QDomNode& messageXML );
+            QString getSourceText( const QDomNode &messageTag ) const;
+            QString getTagTextData( const QDomNode& tag ) const;
+            QString convertTextToStarEnglish( const QString& sourceText ) const;
+            QDomNode getOrAddATranslationTag( QDomNode& messageTag );
+            void updateTagDataToStarEnglish( QDomNode& translationTag, const QString& starEnglishText );
+            void insertStarEnglishText( QDomNode& tag, const QString& starEnglishText );
+            QDomText getOrAddATextNode( QDomNode& tag );
+            void removeTypeAttribute( QDomNode& translationTag );
+            QDomDocument* m_sourceDocument;
+            const QString m_messageRootTagName;
+            const QString m_sourceTagName;
+            const QString m_translationTagName;
+            const QString m_typeAttributeName;
+            QString m_starEnglishCharacter;
         };
     }
 }
