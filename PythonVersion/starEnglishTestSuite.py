@@ -79,6 +79,13 @@ class TestGeneratingStarEnglish(unittest.TestCase):
         expected = "<TS><context><message><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\" /><source>Hello World</source><translation>*Hello World*</translation></message></context></TS>"
         self.assertEqual(actual, expected)
 
+    def test_generating_star_english_with_multiple_location_tag_used_by_qml(self):
+        generator_tester = StarEnglishGeneratorTester()
+        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\"/><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"605\"/><source>Hello World</source><translation type=\"unfinished\"></translation></message></context></TS>")
+        actual = etree.tostring(actual_tree.getroot(), encoding="unicode")
+        expected = "<TS><context><message><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\" /><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"605\" /><source>Hello World</source><translation>*Hello World*</translation></message></context></TS>"
+        self.assertEqual(actual, expected)
+
     def test_generating_star_english_with_context_comments(self):
         generator_tester = StarEnglishGeneratorTester()
         actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message><source>Hello World</source><comment>This is just showing how a context comment looks in the TS file.</comment><translation type=\"unfinished\"></translation></message></context></TS>")
