@@ -16,6 +16,62 @@ import sys
 import xml.etree.ElementTree as etree
 
 
+class StarEnglishGenerator():
+    def __init__(self, source_translation_file):
+        self.__source_translation_file = source_translation_file
+        self.__star_english_marker = '*'
+
+    def __open_translation_file(self, open_mode):
+        try:
+            xml_file = open(self.__source_translation_file, open_mode)
+        except FileNotFoundError:
+            xml_file = 0
+            print("Error: Could not open the Translation file.")
+        return xml_file
+
+    def __process_message_entry(self, message_element):
+        if message_element.tag == "message":
+            translation_element = message_element.find("translation")
+            if translation_element.get("type") == "unfinished":
+                original_string = message_element.find("source").text
+                translation_element.text = self.__star_english_marker + original_string + self.__star_english_marker
+                translation_element.attrib.pop("type")
+
+    def __process_context_entry(self, context_element):
+        if context_element.tag == "context":
+            for element in context_element:
+                self.__process_message_entry(element)
+
+    def _parse_xml_data(self, translation_file):
+        translation_xml_tree = etree.parse(translation_file)
+        return translation_xml_tree
+
+    def _generate_star_english_xml_tree(self, translation_file):
+        translation_xml_tree = self._parse_xml_data(translation_file)
+
+        for element in translation_xml_tree.getroot():
+            self.__process_context_entry(element)
+
+        return translation_xml_tree
+
+    def __save_original_file(self):
+        backup_filename = self.__source_translation_filename + ".org"
+        original_xml_tree = etree.parse(self.__source_translation_filename)
+        original_xml_tree.write(backup_filename)
+        print("Backed up the original file here: ", backup_filename)
+
+    def generate_star_english_file(self):
+        translation_file = self.__open_translation_file("rb")
+
+        if translation_file:
+            self.__save_original_file()
+            star_english_xml_tree = self.__generate_star_english_xml_tree(translation_file)
+            translation_file.close()
+            star_english_xml_tree.write(self.__source_translation_filename)
+            print("Done.")
+            print(self.__source_translation_filename, " has been updated to be Star English.")
+
+
 def print_help_message():
     print("===============================================")
     print("  Create Star English Translation File for Qt")
@@ -28,61 +84,12 @@ def print_help_message():
     print("    python createStarEnglishFile.py myApp_fo.ts")
 
 
-def open_translation_file(source_translation_file, open_mode):
-    try:
-        xml_file = open(source_translation_file, open_mode)
-    except FileNotFoundError:
-        xml_file = 0
-        print("Error: Could not open the Translation file.")
-    return xml_file
-
-
-def process_message_entry(message_element):
-    if message_element.tag == "message":
-        translation_element = message_element.find("translation")
-        if translation_element.get("type") == "unfinished":
-            original_string = message_element.find("source").text
-            translation_element.text = "*"+original_string+"*"
-            translation_element.attrib.pop("type")
-
-
-def process_context_entry(context_element):
-    if context_element.tag == "context":
-        for element in context_element:
-            process_message_entry(element)
-
-
-def generate_star_english_xml_tree(translation_file):
-    translation_xml_tree = etree.parse(translation_file)
-
-    for element in translation_xml_tree.getroot():
-        process_context_entry(element)
-
-    return translation_xml_tree
-
-
-def save_original_file(original_translation_filename):
-    backup_filename = original_translation_filename + ".org"
-    original_xml_tree = etree.parse(original_translation_filename)
-    original_xml_tree.write(backup_filename)
-    print("Backed up the original file here: ", backup_filename)
-
-def generate_star_english_file(source_translation_filename):
-    translation_file = open_translation_file(source_translation_filename, "rb")
-
-    if translation_file:
-        save_original_file(source_translation_filename)
-        star_english_xml_tree = generate_star_english_xml_tree(translation_file)
-        translation_file.close()
-        star_english_xml_tree.write(source_translation_filename)
-        print("Done.")
-        print(source_translation_filename, " has been updated to be Star English.")
-
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         print("================================")
         print("Generating Star English Translation file for: ", sys.argv[1])
-        generate_star_english_file(sys.argv[1])
+        generator = StarEnglishGenerator(sys.argv[1])
+        generator.generate_star_english_file()
         print("================================")
     else:
         print_help_message()
