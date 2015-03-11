@@ -17,13 +17,13 @@ import xml.etree.ElementTree as etree
 
 
 class StarEnglishGenerator():
-    def __init__(self, source_translation_file):
-        self.__source_translation_file = source_translation_file
+    def __init__(self, source_translation_filename):
+        self.__source_translation_filename = source_translation_filename
         self.__star_english_marker = '*'
 
     def __open_translation_file(self, open_mode):
         try:
-            xml_file = open(self.__source_translation_file, open_mode)
+            xml_file = open(self.__source_translation_filename, open_mode)
         except FileNotFoundError:
             xml_file = 0
             print("Error: Could not open the Translation file.")
@@ -74,7 +74,7 @@ class StarEnglishGenerator():
 
         if translation_file:
             self.__save_original_file()
-            star_english_xml_tree = self.__generate_star_english_xml_tree(translation_file)
+            star_english_xml_tree = self._generate_star_english_xml_tree(translation_file)
             translation_file.close()
             star_english_xml_tree.write(self.__source_translation_filename)
             print("Done.")
