@@ -384,7 +384,6 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandlesContext
     QByteArray source;
     source.append("<context>"
                   "<message>"
-                  "<location filename=\"starenglishgeneratorapp/main.qml\" line=\"34\"/>"
                   "<source>&amp;File</source>"
                   "<comment>This is just showing how a context comment looks in the TS file.</comment>"
                   "<translation type=\"unfinished\"></translation>"
@@ -400,7 +399,6 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandlesContext
 
     QString expectedData = "<context>"
                            "<message>"
-                           "<location filename=\"starenglishgeneratorapp/main.qml\" line=\"34\"/>"
                            "<source>&amp;File</source>"
                            "<comment>This is just showing how a context comment looks in the TS file.</comment>"
                            "<translation>*&amp;File*</translation>"
@@ -416,7 +414,6 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsExtraCo
     QByteArray source;
     source.append("<context>"
                   "<message>"
-                  "<location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\"/>"
                   "<source>Hello World</source>"
                   "<extracomment>This is an example of an extra comment ment for the translator.</extracomment>"
                   "<translation type=\"unfinished\"></translation>"
@@ -432,7 +429,6 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsExtraCo
 
     QString expectedData = "<context>"
                            "<message>"
-                           "<location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\"/>"
                            "<source>Hello World</source>"
                            "<extracomment>This is an example of an extra comment ment for the translator.</extracomment>"
                            "<translation>*Hello World*</translation>"
@@ -448,7 +444,6 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithNumerusFormSour
     QByteArray source;
     source.append("<context>"
                   "<message numerus=\"yes\">"
-                  "<location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"560\" />"
                   "<source>Month(s)</source>"
                   "<translation type=\"unfinished\">"
                   "<numerusform></numerusform>"
@@ -466,7 +461,6 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithNumerusFormSour
 
     QString expectedData = "<context>"
                            "<message numerus=\"yes\">"
-                           "<location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"560\" />"
                            "<source>Month(s)</source>"
                            "<translation>"
                            "<numerusform>*Month*</numerusform>"
