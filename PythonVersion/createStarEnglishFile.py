@@ -29,12 +29,21 @@ class StarEnglishGenerator():
             print("Error: Could not open the Translation file.")
         return xml_file
 
+    def __insert_star_english_string(self, translation_element, original_string, is_numerus):
+        if is_numerus:
+            numerusform_elements = translation_element.findall("numerusform")
+            numerusform_elements[0].text = self.__star_english_marker + original_string[:-3] + self.__star_english_marker
+            numerusform_elements[1].text = self.__star_english_marker + original_string.replace("(","").replace(")","") + self.__star_english_marker
+        else:
+            translation_element.text = self.__star_english_marker + original_string + self.__star_english_marker
+
     def __process_message_entry(self, message_element):
         if message_element.tag == "message":
+            is_numerus = (message_element.get("numerus") == "yes")
             translation_element = message_element.find("translation")
             if translation_element.get("type") == "unfinished":
                 original_string = message_element.find("source").text
-                translation_element.text = self.__star_english_marker + original_string + self.__star_english_marker
+                self.__insert_star_english_string(translation_element, original_string, is_numerus)
                 translation_element.attrib.pop("type")
 
     def __process_context_entry(self, context_element):

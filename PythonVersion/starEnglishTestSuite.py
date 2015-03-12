@@ -65,18 +65,39 @@ class TestGeneratingStarEnglish(unittest.TestCase):
         expected = "<TS><context><message><source>HELLO WORLD</source><translation>*HELLO WORLD*</translation></message><message><source>FU BAR</source><translation>*FU BAR*</translation></message></context><context><message><source>Test Message</source><translation>*Test Message*</translation></message><message><source>One Two Three</source><translation>*One Two Three*</translation></message></context></TS>"
         self.assertEqual(actual, expected)
 
-    def test_generating_star_english_with_extra_comments_from_qml(self):
+    def test_generating_star_english_with_miss_ordered_tags(self):
         generator_tester = StarEnglishGeneratorTester()
-        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\"/><source>Hello World</source><extracomment>This is an example of an extra comment</extracomment><translation type=\"unfinished\"></translation></message></context></TS>")
+        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message><translation type=\"unfinished\"></translation><source>Hello World</source></message></context></TS>")
         actual = etree.tostring(actual_tree.getroot(), encoding="unicode")
-        expected = "<TS><context><message><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\"/><source>Hello World</source><extracomment>This is an example of an extra comment</extracomment><translation>*Hello World*</translation></message></context></TS>"
+        expected = "<TS><context><message><translation>*Hello World*</translation><source>Hello World</source></message></context></TS>"
+        self.assertEqual(actual, expected)
+
+    def test_generating_star_english_with_location_tag_used_by_qml(self):
+        generator_tester = StarEnglishGeneratorTester()
+        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\"/><source>Hello World</source><translation type=\"unfinished\"></translation></message></context></TS>")
+        actual = etree.tostring(actual_tree.getroot(), encoding="unicode")
+        expected = "<TS><context><message><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"501\" /><source>Hello World</source><translation>*Hello World*</translation></message></context></TS>"
+        self.assertEqual(actual, expected)
+
+    def test_generating_star_english_with_context_comments(self):
+        generator_tester = StarEnglishGeneratorTester()
+        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message><source>Hello World</source><comment>This is just showing how a context comment looks in the TS file.</comment><translation type=\"unfinished\"></translation></message></context></TS>")
+        actual = etree.tostring(actual_tree.getroot(), encoding="unicode")
+        expected = "<TS><context><message><source>Hello World</source><comment>This is just showing how a context comment looks in the TS file.</comment><translation>*Hello World*</translation></message></context></TS>"
+        self.assertEqual(actual, expected)
+
+    def test_generating_star_english_with_extra_comments(self):
+        generator_tester = StarEnglishGeneratorTester()
+        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message><source>Hello World</source><extracomment>This is an example of an extra comment</extracomment><translation type=\"unfinished\"></translation></message></context></TS>")
+        actual = etree.tostring(actual_tree.getroot(), encoding="unicode")
+        expected = "<TS><context><message><source>Hello World</source><extracomment>This is an example of an extra comment</extracomment><translation>*Hello World*</translation></message></context></TS>"
         self.assertEqual(actual, expected)
 
     def test_generating_star_english_with_numerus_forms(self):
         generator_tester = StarEnglishGeneratorTester()
-        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message numerus=\"yes\"><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"560\"/><source>Month(s)</source><translation type=\"unfinished\"><numerusform></numerusform><numerusform></numerusform></translation></message></context></TS>")
+        actual_tree = generator_tester._generate_star_english_xml_tree("<TS><context><message numerus=\"yes\"><source>Month(s)</source><translation type=\"unfinished\"><numerusform></numerusform><numerusform></numerusform></translation></message></context></TS>")
         actual = etree.tostring(actual_tree.getroot(), encoding="unicode")
-        expected = "<TS><context><message numerus=\"yes\"><location filename=\"myapp/qml/myapp/screens/MyScreen.qml\" line=\"560\" /><source>Month(s)</source><translation><numerusform>*Month(s)*</numerusform><numerusform>*Month(s)*</numerusform></translation></message></context></TS>"
+        expected = "<TS><context><message numerus=\"yes\"><source>Month(s)</source><translation><numerusform>*Month*</numerusform><numerusform>*Months*</numerusform></translation></message></context></TS>"
         self.assertEqual(actual, expected)
 
 if __name__ == "__main__":

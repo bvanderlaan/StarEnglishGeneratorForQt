@@ -25,32 +25,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="createStarEnglishFile.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="createStarEnglishFile.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="1088">
-              <caret line="60" column="68" selection-start-line="60" selection-start-column="68" selection-end-line="60" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.3935264" vertical-offset="262" max-vertical-offset="1190">
+              <caret line="35" column="118" selection-start-line="35" selection-start-column="118" selection-end-line="35" selection-end-column="118" />
               <folding>
                 <element signature="e#582#592#0" expanded="true" />
                 <element signature="e#877#1100#0" expanded="false" />
-                <element signature="e#1166#1578#0" expanded="false" />
-                <element signature="e#1837#1925#0" expanded="false" />
-                <element signature="e#2250#2505#0" expanded="false" />
-                <element signature="e#2557#3007#0" expanded="false" />
-                <element signature="e#3040#3528#0" expanded="false" />
+                <element signature="e#2288#2422#0" expanded="false" />
+                <element signature="e#2481#2569#0" expanded="false" />
+                <element signature="e#2644#2848#0" expanded="false" />
+                <element signature="e#2894#3149#0" expanded="false" />
+                <element signature="e#3201#3651#0" expanded="false" />
+                <element signature="e#3684#4172#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="starEnglishTestSuite.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="starEnglishTestSuite.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starEnglishTestSuite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9407666" vertical-offset="752" max-vertical-offset="1394">
-              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state vertical-scroll-proportion="-12.344828" vertical-offset="424" max-vertical-offset="969">
+              <caret line="99" column="150" selection-start-line="99" selection-start-column="150" selection-end-line="99" selection-end-column="150" />
               <folding>
                 <element signature="e#582#610#0" expanded="true" />
                 <element signature="e#749#1029#0" expanded="false" />
+                <element signature="e#1170#1668#0" expanded="false" />
+                <element signature="e#1764#2344#0" expanded="false" />
+                <element signature="e#2425#2912#0" expanded="false" />
+                <element signature="e#3023#3578#0" expanded="false" />
+                <element signature="e#3677#4776#0" expanded="false" />
+                <element signature="e#4853#5352#0" expanded="false" />
+                <element signature="e#5436#6084#0" expanded="false" />
+                <element signature="e#6160#6825#0" expanded="false" />
+                <element signature="e#6899#7532#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -66,8 +76,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/createStarEnglishFile.py" />
         <option value="$PROJECT_DIR$/starEnglishTestSuite.py" />
+        <option value="$PROJECT_DIR$/createStarEnglishFile.py" />
       </list>
     </option>
   </component>
@@ -150,31 +160,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in starEnglishTestSuite">
-    <configuration default="false" name="Unittest TestGeneratingStarEnglish.test_generating_star_english_with_extra_comments_from_qml" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="createStarEnglishTranslationFile" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/starEnglishTestSuite.py" />
-      <option name="CLASS_NAME" value="TestGeneratingStarEnglish" />
-      <option name="METHOD_NAME" value="test_generating_star_english_with_extra_comments_from_qml" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerus_forms">
     <configuration default="false" name="Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerusforms" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -262,6 +248,30 @@
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittest TestGeneratingStarEnglish.test_generating_star_english_with_location_tag_used_by_qml" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="createStarEnglishTranslationFile" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/starEnglishTestSuite.py" />
+      <option name="CLASS_NAME" value="TestGeneratingStarEnglish" />
+      <option name="METHOD_NAME" value="test_generating_star_english_with_location_tag_used_by_qml" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -547,19 +557,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_extra_comments_from_qml" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerusforms" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_when_entry_is_already_translated" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerus_forms" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in starEnglishTestSuite" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerusforms" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_when_entry_is_already_translated" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerus_forms" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in starEnglishTestSuite" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_location_tag_used_by_qml" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in starEnglishTestSuite" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerus_forms" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerusforms" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_when_entry_is_already_translated" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_extra_comments_from_qml" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerus_forms" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_location_tag_used_by_qml" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in starEnglishTestSuite" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_with_numerusforms" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest TestGeneratingStarEnglish.test_generating_star_english_when_entry_is_already_translated" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -659,11 +669,12 @@
           <folding>
             <element signature="e#582#592#0" expanded="true" />
             <element signature="e#877#1100#0" expanded="false" />
-            <element signature="e#1166#1578#0" expanded="false" />
-            <element signature="e#1837#1925#0" expanded="false" />
-            <element signature="e#2250#2505#0" expanded="false" />
-            <element signature="e#2557#3007#0" expanded="false" />
-            <element signature="e#3040#3528#0" expanded="false" />
+            <element signature="e#2288#2422#0" expanded="false" />
+            <element signature="e#2481#2569#0" expanded="false" />
+            <element signature="e#2644#2848#0" expanded="false" />
+            <element signature="e#2894#3149#0" expanded="false" />
+            <element signature="e#3201#3651#0" expanded="false" />
+            <element signature="e#3684#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -683,11 +694,12 @@
           <folding>
             <element signature="e#582#592#0" expanded="true" />
             <element signature="e#877#1100#0" expanded="false" />
-            <element signature="e#1166#1578#0" expanded="false" />
-            <element signature="e#1837#1925#0" expanded="false" />
-            <element signature="e#2250#2505#0" expanded="false" />
-            <element signature="e#2557#3007#0" expanded="false" />
-            <element signature="e#3040#3528#0" expanded="false" />
+            <element signature="e#2288#2422#0" expanded="false" />
+            <element signature="e#2481#2569#0" expanded="false" />
+            <element signature="e#2644#2848#0" expanded="false" />
+            <element signature="e#2894#3149#0" expanded="false" />
+            <element signature="e#3201#3651#0" expanded="false" />
+            <element signature="e#3684#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -699,11 +711,12 @@
           <folding>
             <element signature="e#582#592#0" expanded="true" />
             <element signature="e#877#1100#0" expanded="false" />
-            <element signature="e#1166#1578#0" expanded="false" />
-            <element signature="e#1837#1925#0" expanded="false" />
-            <element signature="e#2250#2505#0" expanded="false" />
-            <element signature="e#2557#3007#0" expanded="false" />
-            <element signature="e#3040#3528#0" expanded="false" />
+            <element signature="e#2288#2422#0" expanded="false" />
+            <element signature="e#2481#2569#0" expanded="false" />
+            <element signature="e#2644#2848#0" expanded="false" />
+            <element signature="e#2894#3149#0" expanded="false" />
+            <element signature="e#3201#3651#0" expanded="false" />
+            <element signature="e#3684#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -715,11 +728,12 @@
           <folding>
             <element signature="e#582#592#0" expanded="true" />
             <element signature="e#877#1100#0" expanded="false" />
-            <element signature="e#1166#1578#0" expanded="false" />
-            <element signature="e#1837#1925#0" expanded="false" />
-            <element signature="e#2250#2505#0" expanded="false" />
-            <element signature="e#2557#3007#0" expanded="false" />
-            <element signature="e#3040#3528#0" expanded="false" />
+            <element signature="e#2288#2422#0" expanded="false" />
+            <element signature="e#2481#2569#0" expanded="false" />
+            <element signature="e#2644#2848#0" expanded="false" />
+            <element signature="e#2894#3149#0" expanded="false" />
+            <element signature="e#3201#3651#0" expanded="false" />
+            <element signature="e#3684#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -732,29 +746,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
+    <entry file="file://$PROJECT_DIR$/starEnglishTestSuite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="1224">
-          <caret line="60" column="68" selection-start-line="60" selection-start-column="68" selection-end-line="60" selection-end-column="68" />
+        <state vertical-scroll-proportion="-12.344828" vertical-offset="424" max-vertical-offset="969">
+          <caret line="99" column="150" selection-start-line="99" selection-start-column="150" selection-end-line="99" selection-end-column="150" />
           <folding>
-            <element signature="e#582#592#0" expanded="true" />
-            <element signature="e#877#1100#0" expanded="false" />
-            <element signature="e#1166#1578#0" expanded="false" />
-            <element signature="e#1837#1925#0" expanded="false" />
-            <element signature="e#2250#2505#0" expanded="false" />
-            <element signature="e#2557#3007#0" expanded="false" />
-            <element signature="e#3040#3528#0" expanded="false" />
+            <element signature="e#582#610#0" expanded="true" />
+            <element signature="e#749#1029#0" expanded="false" />
+            <element signature="e#1170#1668#0" expanded="false" />
+            <element signature="e#1764#2344#0" expanded="false" />
+            <element signature="e#2425#2912#0" expanded="false" />
+            <element signature="e#3023#3578#0" expanded="false" />
+            <element signature="e#3677#4776#0" expanded="false" />
+            <element signature="e#4853#5352#0" expanded="false" />
+            <element signature="e#5436#6084#0" expanded="false" />
+            <element signature="e#6160#6825#0" expanded="false" />
+            <element signature="e#6899#7532#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/starEnglishTestSuite.py">
+    <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9407666" vertical-offset="752" max-vertical-offset="1394">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3935264" vertical-offset="262" max-vertical-offset="1190">
+          <caret line="35" column="118" selection-start-line="35" selection-start-column="118" selection-end-line="35" selection-end-column="118" />
           <folding>
-            <element signature="e#582#610#0" expanded="true" />
-            <element signature="e#749#1029#0" expanded="false" />
+            <element signature="e#582#592#0" expanded="true" />
+            <element signature="e#877#1100#0" expanded="false" />
+            <element signature="e#2288#2422#0" expanded="false" />
+            <element signature="e#2481#2569#0" expanded="false" />
+            <element signature="e#2644#2848#0" expanded="false" />
+            <element signature="e#2894#3149#0" expanded="false" />
+            <element signature="e#3201#3651#0" expanded="false" />
+            <element signature="e#3684#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
