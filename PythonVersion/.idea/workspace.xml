@@ -29,8 +29,9 @@
         <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="57" />
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
+                <element signature="e#582#592#0" expanded="true" />
                 <element signature="e#683#1171#0" expanded="false" />
               </folding>
             </state>
@@ -53,8 +54,8 @@
       <file leaf-file-name="longEnglishTestSuite.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/longEnglishTestSuite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6551723" vertical-offset="101" max-vertical-offset="1751">
-              <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="662" max-vertical-offset="1870">
+              <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
               <folding>
                 <element signature="e#582#639#0" expanded="true" />
                 <element signature="e#759#1020#0" expanded="false" />
@@ -74,27 +75,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="translation_generator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="translation_generator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ca/imaginativethinking/translation_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5337209" vertical-offset="0" max-vertical-offset="860">
-              <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding>
-                <element signature="e#656#2982#0" expanded="false" />
-                <element signature="e#802#1143#0" expanded="false" />
-                <element signature="e#1203#1429#0" expanded="false" />
-                <element signature="e#1475#1728#0" expanded="false" />
-                <element signature="e#1799#2003#0" expanded="false" />
-                <element signature="e#2062#2150#0" expanded="false" />
-                <element signature="e#2216#2350#0" expanded="false" />
-                <element signature="e#2416#2876#0" expanded="false" />
-                <element signature="e#2978#2982#0" expanded="false" />
-                <element signature="e#3454#3946#0" expanded="false" />
-                <element signature="e#4003#4984#0" expanded="false" />
-                <element signature="e#4056#4157#0" expanded="false" />
-                <element signature="e#4191#4316#0" expanded="false" />
-                <element signature="e#4418#4855#0" expanded="false" />
-                <element signature="e#4923#4984#0" expanded="false" />
+                <element signature="e#810#1151#0" expanded="false" />
+                <element signature="e#1211#1437#0" expanded="false" />
+                <element signature="e#1483#1736#0" expanded="false" />
+                <element signature="e#1807#2011#0" expanded="false" />
+                <element signature="e#2070#2158#0" expanded="false" />
+                <element signature="e#2224#2358#0" expanded="false" />
+                <element signature="e#2424#2884#0" expanded="false" />
+                <element signature="e#2986#2990#0" expanded="false" />
+                <element signature="e#3470#3962#0" expanded="false" />
+                <element signature="e#4019#5008#0" expanded="false" />
+                <element signature="e#4076#4181#0" expanded="false" />
+                <element signature="e#4215#4340#0" expanded="false" />
+                <element signature="e#4442#4879#0" expanded="false" />
+                <element signature="e#4947#5008#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -103,7 +103,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ca/imaginativethinking/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
+            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="136">
               <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
               <folding />
             </state>
@@ -120,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="starEnglishTestSuite.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="starEnglishTestSuite.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/starEnglishTestSuite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7413793" vertical-offset="198" max-vertical-offset="1819">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.37530863" vertical-offset="1225" max-vertical-offset="1938">
+              <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
               <folding>
                 <element signature="e#582#639#0" expanded="true" />
                 <element signature="e#888#1020#0" expanded="false" />
@@ -156,10 +156,10 @@
         <option value="$PROJECT_DIR$/ca/imaginativethinking/TranslationGenerator.py" />
         <option value="$PROJECT_DIR$/ca/imaginativethinking/__init__.py" />
         <option value="$PROJECT_DIR$/createLongEnglishFile.py" />
-        <option value="$PROJECT_DIR$/createStarEnglishFile.py" />
         <option value="$PROJECT_DIR$/longEnglishTestSuite.py" />
-        <option value="$PROJECT_DIR$/starEnglishTestSuite.py" />
         <option value="$PROJECT_DIR$/ca/imaginativethinking/translation_generator.py" />
+        <option value="$PROJECT_DIR$/createStarEnglishFile.py" />
+        <option value="$PROJECT_DIR$/starEnglishTestSuite.py" />
       </list>
     </option>
   </component>
@@ -195,8 +195,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -718,7 +718,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48200655" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48200655" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -780,9 +780,110 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1921">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <element signature="e#582#592#0" expanded="true" />
+            <element signature="e#683#1171#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createLongEnglishFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="595">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <folding>
+            <element signature="e#582#592#0" expanded="true" />
+            <element signature="e#683#1171#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/longEnglishTestSuite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="101" max-vertical-offset="1751">
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+          <folding>
+            <element signature="e#582#639#0" expanded="true" />
+            <element signature="e#759#1020#0" expanded="false" />
+            <element signature="e#888#1020#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createStarEnglishTranslationFile.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ca/imaginativethinking/translation_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="663">
+          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+          <folding>
+            <element signature="e#810#1151#0" expanded="false" />
+            <element signature="e#1211#1437#0" expanded="false" />
+            <element signature="e#1483#1736#0" expanded="false" />
+            <element signature="e#1807#2011#0" expanded="false" />
+            <element signature="e#2070#2158#0" expanded="false" />
+            <element signature="e#2224#2358#0" expanded="false" />
+            <element signature="e#2424#2884#0" expanded="false" />
+            <element signature="e#2986#2990#0" expanded="false" />
+            <element signature="e#3470#3962#0" expanded="false" />
+            <element signature="e#4019#5008#0" expanded="false" />
+            <element signature="e#4076#4181#0" expanded="false" />
+            <element signature="e#4215#4340#0" expanded="false" />
+            <element signature="e#4442#4879#0" expanded="false" />
+            <element signature="e#4947#5008#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ca/imaginativethinking/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="136">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ca/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starEnglishTestSuite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1938">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding>
+            <element signature="e#582#639#0" expanded="true" />
+            <element signature="e#888#1020#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="13077" max-vertical-offset="23630">
+          <caret line="791" column="8" selection-start-line="791" selection-start-column="8" selection-end-line="791" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#582#592#0" expanded="true" />
             <element signature="e#683#1171#0" expanded="false" />
           </folding>
         </state>
@@ -804,6 +905,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#582#592#0" expanded="true" />
             <element signature="e#683#1171#0" expanded="false" />
           </folding>
         </state>
@@ -822,6 +924,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#582#592#0" expanded="true" />
             <element signature="e#683#1171#0" expanded="false" />
           </folding>
         </state>
@@ -832,6 +935,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="717" max-vertical-offset="1581">
           <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
           <folding>
+            <element signature="e#582#592#0" expanded="true" />
             <element signature="e#683#1171#0" expanded="false" />
           </folding>
         </state>
@@ -842,6 +946,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1479">
           <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
           <folding>
+            <element signature="e#582#592#0" expanded="true" />
             <element signature="e#683#1171#0" expanded="false" />
           </folding>
         </state>
@@ -863,50 +968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createLongEnglishFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding>
-            <element signature="e#582#592#0" expanded="true" />
-            <element signature="e#683#1171#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="57" />
-          <folding>
-            <element signature="e#683#1171#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/longEnglishTestSuite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6551723" vertical-offset="101" max-vertical-offset="1751">
-          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
-          <folding>
-            <element signature="e#582#639#0" expanded="true" />
-            <element signature="e#759#1020#0" expanded="false" />
-            <element signature="e#888#1020#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/starEnglishTestSuite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7413793" vertical-offset="198" max-vertical-offset="1819">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding>
-            <element signature="e#582#639#0" expanded="true" />
-            <element signature="e#888#1020#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ca/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="889">
@@ -923,26 +984,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/longEnglishTestSuite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="662" max-vertical-offset="1870">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+          <folding>
+            <element signature="e#582#639#0" expanded="true" />
+            <element signature="e#759#1020#0" expanded="false" />
+            <element signature="e#888#1020#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createLongEnglishFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <folding>
+            <element signature="e#582#592#0" expanded="true" />
+            <element signature="e#683#1171#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ca/imaginativethinking/translation_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5337209" vertical-offset="0" max-vertical-offset="860">
-          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding>
-            <element signature="e#656#2982#0" expanded="false" />
-            <element signature="e#802#1143#0" expanded="false" />
-            <element signature="e#1203#1429#0" expanded="false" />
-            <element signature="e#1475#1728#0" expanded="false" />
-            <element signature="e#1799#2003#0" expanded="false" />
-            <element signature="e#2062#2150#0" expanded="false" />
-            <element signature="e#2216#2350#0" expanded="false" />
-            <element signature="e#2416#2876#0" expanded="false" />
-            <element signature="e#2978#2982#0" expanded="false" />
-            <element signature="e#3454#3946#0" expanded="false" />
-            <element signature="e#4003#4984#0" expanded="false" />
-            <element signature="e#4056#4157#0" expanded="false" />
-            <element signature="e#4191#4316#0" expanded="false" />
-            <element signature="e#4418#4855#0" expanded="false" />
-            <element signature="e#4923#4984#0" expanded="false" />
+            <element signature="e#810#1151#0" expanded="false" />
+            <element signature="e#1211#1437#0" expanded="false" />
+            <element signature="e#1483#1736#0" expanded="false" />
+            <element signature="e#1807#2011#0" expanded="false" />
+            <element signature="e#2070#2158#0" expanded="false" />
+            <element signature="e#2224#2358#0" expanded="false" />
+            <element signature="e#2424#2884#0" expanded="false" />
+            <element signature="e#2986#2990#0" expanded="false" />
+            <element signature="e#3470#3962#0" expanded="false" />
+            <element signature="e#4019#5008#0" expanded="false" />
+            <element signature="e#4076#4181#0" expanded="false" />
+            <element signature="e#4215#4340#0" expanded="false" />
+            <element signature="e#4442#4879#0" expanded="false" />
+            <element signature="e#4947#5008#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createStarEnglishFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#582#592#0" expanded="true" />
+            <element signature="e#683#1171#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starEnglishTestSuite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37530863" vertical-offset="1225" max-vertical-offset="1938">
+          <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
+          <folding>
+            <element signature="e#582#639#0" expanded="true" />
+            <element signature="e#888#1020#0" expanded="false" />
           </folding>
         </state>
       </provider>

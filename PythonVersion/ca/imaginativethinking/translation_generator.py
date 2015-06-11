@@ -16,8 +16,8 @@ import xml.etree.ElementTree as etree
 
 
 class TranslationGenerator():
-    def __init__(self, source_translation_file):
-        self._source_translation_filename = source_translation_file
+    def __init__(self, source_translation_filename):
+        self._source_translation_filename = source_translation_filename
 
     def generate(self):
         translation_file = self.__open_translation_file("rb")
@@ -74,8 +74,8 @@ class TranslationGenerator():
 
 
 class StarEnglishGenerator(TranslationGenerator):
-    def __init__(self, source_translation_file):
-        TranslationGenerator.__init__(self, source_translation_file)
+    def __init__(self, source_translation_filename):
+        TranslationGenerator.__init__(self, source_translation_filename)
         self.__star_english_marker = '*'
 
     def generate(self):
@@ -92,8 +92,8 @@ class StarEnglishGenerator(TranslationGenerator):
 
 
 class LongEnglishGenerator(TranslationGenerator):
-    def __init__(self, source_translation_file):
-        TranslationGenerator.__init__(self, source_translation_file)
+    def __init__(self, source_translation_filename):
+        TranslationGenerator.__init__(self, source_translation_filename)
         self.__long_english_marker = 'W'
 
     def generate(self):
