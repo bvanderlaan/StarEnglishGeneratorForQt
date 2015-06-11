@@ -1,6 +1,6 @@
-This tool takes a Qt translation file (*.ts) and generates a new one inserting asterisks around each string for use to test your code for translation support.
+This tool takes a Qt translation file (*.ts) and generates a new one inserting either asterisks or a number of W's around each string for use to test your code for translation support.
 
-It is for use with the Star-English technique.
+It is for use with the Star-English or Long-English technique.
 
 
 ----

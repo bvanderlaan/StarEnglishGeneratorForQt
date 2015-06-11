@@ -1,9 +1,9 @@
-Star English Generator for Qt
+Star English and Long English Generator for Qt
 =================
 
-This tool takes a Qt translation file (*.ts) and generates a new one inserting asterisks around each string for use to test your code for translation support.
+This tool takes a Qt translation file (*.ts) and generates a new one inserting either asterisks or a number of W's around each string for use to test your code for translation support.
 
-It is for use with the [Star-English] technique.
+It is for use with the [Star-English] or [Long-English] technique.
 
 Sources
 -------
@@ -16,8 +16,9 @@ Documentation
 -------------
 
 ### The Python Version
+#### Star-English
 
-This script takes a TS file and generates the star english translation strings.
+This script takes a TS file and generates the Star-English translation strings.
 
 You need to provide the TS file name to update.<br>
 Example:<br>
@@ -25,7 +26,19 @@ Example:<br>
     python createStarEnglishFile.py myApp_fo.ts
 ```
 	
-It will update myApp_fo.ts to use Star English strings and will save the orignally passed in file as myApp_fo.ts.org.
+It will update myApp_fo.ts to use Star-English strings and will save the originally passed in file as myApp_fo.ts.org.
+
+#### Long-English
+
+This script takes a TS file and generates the Long-English translation strings.
+
+You need to provide the TS file name to update.<br>
+Example:<br>
+```
+    python createLongEnglishFile.py myApp_fo.ts
+```
+	
+It will update myApp_fo.ts to use Long-English strings and will save the originally passed in file as myApp_fo.ts.org.
 
 ### The C++/Qt Version
 
@@ -35,5 +48,6 @@ The source file will remain unchanged unless you tell the tool to output to the 
 
 [website]: http://bradvanderlaan.ca
 [Star-English]: http://imaginativethinking.ca/what-the-heck-is-star-english
+[Long-English]: http://imaginativethinking.ca/what-the-heck-is-long-english
 [sources]: https://github.com/bvanderlaan/StarEnglishGeneratorForQt
 

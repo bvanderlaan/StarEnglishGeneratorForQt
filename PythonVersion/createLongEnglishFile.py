@@ -18,21 +18,21 @@ import ca.imaginativethinking.translation_generator as tg
 
 def print_help_message():
     print("===============================================")
-    print("  Create Star English Translation File for Qt")
+    print("  Create Long English Translation File for Qt")
     print("                                  Version 1.0.0")
     print("===============================================")
-    print("This script takes a TS file and generates the star english translation strings.")
+    print("This script takes a TS file and generates the long english translation strings.")
     print("")
     print("You need to provide the TS file name to update.")
     print("Example:")
-    print("    python createStarEnglishFile.py myApp_fo.ts")
+    print("    python createLongEnglishFile.py myApp_fo.ts")
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         print("================================")
-        print("Generating Star English Translation file for: ", sys.argv[1])
-        generator = tg.StarEnglishGenerator(sys.argv[1])
+        print("Generating Long English Translation file for: ", sys.argv[1])
+        generator = tg.LongEnglishGenerator(sys.argv[1])
         generator.generate()
         print("================================")
     else:
