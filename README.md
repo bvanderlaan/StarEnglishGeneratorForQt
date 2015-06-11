@@ -47,7 +47,7 @@ The source file will remain unchanged unless you tell the tool to output to the 
 
 
 [website]: http://bradvanderlaan.ca
-[Star-English]: http://imaginativethinking.ca/what-the-heck-is-star-english
+[Star-English]: http://imaginativethinking.ca/heck-star-english
 [Long-English]: http://imaginativethinking.ca/what-the-heck-is-long-english
 [sources]: https://github.com/bvanderlaan/StarEnglishGeneratorForQt
 
