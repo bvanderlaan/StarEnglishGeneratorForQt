@@ -27,8 +27,16 @@ Item {
     property alias openSourceTrasnlationFileAction: openSourceTranslationFile.action
     property alias sourceTrasnlationFile: sourceTrasnlationFile.text
     property alias outputTrasnlationFile: starEnglishTrasnlationFile.text
+    property alias outputPath: outputPath_internal.text
     property string font: "Tahoma"
     property int pointSize: 12
+    property alias sourceTranslationFileMouseArea: sourceTranslationFileClickableArea
+    property bool isAdvancedMode: false
+    property alias outputPathLable: outputPathLabel_internal
+    property alias outputPathInput: outputPathInput_internal
+    property alias gridLayout: gridLayout_internal
+    property alias outputPathClickableArea: outputPathClickableArea_internal
+    property alias selectOutputPathAction: selectOutputPathButton_internal.action
 
     ColumnLayout {
         anchors.fill: parent
@@ -41,73 +49,145 @@ Item {
             font.pointSize: root.pointSize
         }
         Item { width: 1; height: 10; }
-        RowLayout {
-           anchors.left: parent.left
-           anchors.right: parent.right
-           spacing: 5
-
-           Text {
-               text: qsTr("Source Translation File: ")
-               font.family: root.font
-               font.pointSize: root.pointSize
-           }
-           Rectangle {
-               Layout.fillWidth: true
-               height: childrenRect.height + 10
-               color: "white"
-               border.color: "black"
-               border.width: 2
-
-               Text {
-                   id: sourceTrasnlationFile
-                   verticalAlignment: Text.AlignVCenter
-                   font.pointSize: root.pointSize
-                   font.family: root.font
-                   anchors.top: parent.top
-                   anchors.left: parent.left
-                   anchors.right: parent.right
-                   anchors.margins: 5
-                   elide: Text.ElideLeft
-               }
-           }
-           Button {
-               id: openSourceTranslationFile
-               text: "..."
-           }
-        }
-        RowLayout {
+        Item {
+            Layout.fillHeight: true
             anchors.left: parent.left
             anchors.right: parent.right
-            height: childrenRect.height
-            spacing: 5
 
-            Text {
-                text: qsTr("Output filename:")
-                font.pointSize: root.pointSize
-                font.family: root.font
-            }
-            Rectangle {
-                Layout.fillWidth: true
-                height: childrenRect.height + 10
-                color: "white"
-                border.color: "black"
-                border.width: 2
+            GridLayout {
+                id: gridLayout_internal
+                anchors.fill: parent
+                columns: 2
+                rows: 2
 
-                TextInput {
-                    id: starEnglishTrasnlationFile
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.margins: 5
+                Text {
+                    text: qsTr("Source Translation File: ")
+                    font.family: root.font
+                    font.pointSize: root.pointSize
+                }
+                Item {
+                    Layout.fillWidth: true
+                    height: childrenRect.height
+
+                    RowLayout {
+                       anchors.left: parent.left
+                       anchors.right: parent.right
+                       spacing: 5
+
+                       Rectangle {
+                           id: sourceTranslationInput
+                           Layout.fillWidth: true
+                           height: childrenRect.height + 10
+                           color: "white"
+                           border.color: "black"
+                           border.width: 1
+
+                           Text {
+                               id: sourceTrasnlationFile
+                               verticalAlignment: Text.AlignVCenter
+                               font.pointSize: root.pointSize
+                               font.family: root.font
+                               anchors.top: parent.top
+                               anchors.left: parent.left
+                               anchors.right: parent.right
+                               anchors.margins: 5
+                               elide: Text.ElideLeft
+
+                               MouseArea {
+                                   id: sourceTranslationFileClickableArea
+                                   anchors.fill: parent
+                               }
+                           }
+                       }
+                       Button {
+                           id: openSourceTranslationFile
+                           text: "..."
+                           implicitHeight: sourceTranslationInput.height
+                       }
+                    }
+                }
+
+                Text {
+                    text: qsTr("Output filename:")
                     font.pointSize: root.pointSize
                     font.family: root.font
+                }
+                Rectangle {
+                    Layout.fillWidth: true
+                    height: childrenRect.height + 10
+                    color: "white"
+                    border.color: "black"
+                    border.width: 1
+
+                    TextInput {
+                        id: starEnglishTrasnlationFile
+                        anchors.top: parent.top
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.margins: 5
+                        font.pointSize: root.pointSize
+                        font.family: root.font
+                    }
+                }
+
+                Text {
+                    id: outputPathLabel_internal
+                    text: qsTr("Output path: ")
+                    font.family: root.font
+                    font.pointSize: root.pointSize
+                    opacity: 0
+                    visible: opacity > 0
+                }
+                Item {
+                    id: outputPathInput_internal
+                    Layout.fillWidth: true
+                    height: childrenRect.height
+                    opacity: 0
+                    visible: opacity > 0
+
+                    RowLayout {
+                       anchors.left: parent.left
+                       anchors.right: parent.right
+                       spacing: 5
+
+                       Rectangle {
+                           id: outputPathRectangle
+                           Layout.fillWidth: true
+                           height: childrenRect.height + 10
+                           color: "white"
+                           border.color: "black"
+                           border.width: 1
+
+                           Text {
+                               id: outputPath_internal
+                               verticalAlignment: Text.AlignVCenter
+                               font.pointSize: root.pointSize
+                               font.family: root.font
+                               anchors.top: parent.top
+                               anchors.left: parent.left
+                               anchors.right: parent.right
+                               anchors.margins: 5
+                               elide: Text.ElideLeft
+
+                               MouseArea {
+                                   id: outputPathClickableArea_internal
+                                   anchors.fill: parent
+                               }
+                           }
+                       }
+                       Button {
+                           id: selectOutputPathButton_internal
+                           text: "..."
+                           implicitHeight: outputPathRectangle.height
+                       }
+                    }
                 }
             }
         }
         Button {
             id: generateStarEnglish
             anchors.right: parent.right
+            implicitHeight: openSourceTranslationFile.height
         }
-
     }
 }

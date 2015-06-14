@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
+        <file>AboutDialog.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>Brad.png</file>
     </qresource>
 </RCC>

@@ -30,6 +30,7 @@ namespace ImaginativeThinking
             Q_OBJECT
             Q_PROPERTY( QString sourceFile READ getSourceFile WRITE setSourceFile NOTIFY sourceFileChanged )
             Q_PROPERTY( QString destinationFile READ getDestinationFile WRITE setDestinationFile NOTIFY destinationFileChanged )
+            Q_PROPERTY( QString destinationPath READ getDestinationPath WRITE setDestinationPath NOTIFY destinationFilePathChanged )
         public:
             explicit StarEnglishGeneratorModel(QObject *parent = 0);
             explicit StarEnglishGeneratorModel(StarEnglishGenerator* generator, QObject *parent = 0);
@@ -39,12 +40,15 @@ namespace ImaginativeThinking
             void setSourceFile( const QString& sourceFile );
             QString getDestinationFile() const;
             void setDestinationFile( QString destinationFile );
+            QString getDestinationPath() const;
+            void setDestinationPath( const QString& path );
             bool doesDestinationFileExist() const;
             bool doesSourceFileExist() const;
 
         signals:
             void sourceFileChanged( QString sourceFile );
             void destinationFileChanged( QString destinationFile );
+            void destinationFilePathChanged( QString path );
             void starEnglishFileGenerationCompleted( bool isSuccess );
 
         public slots:
@@ -55,7 +59,8 @@ namespace ImaginativeThinking
 
         private:
             QFileInfo m_sourceFile;
-            QFileInfo m_destinationFile;
+            QString m_destinationFilename;
+            QString m_destinationFilePath;
             StarEnglishGenerator* m_generator;
 
             QString addFileExtensionIfNeeded( const QString& fileName ) const;

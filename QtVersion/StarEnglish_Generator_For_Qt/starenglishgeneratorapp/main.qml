@@ -21,9 +21,14 @@ import QtQuick.Dialogs 1.2
 import ca.imaginativethinking.translation 1.0
 
 ApplicationWindow {
+    id: root
     title: qsTr("Star English Generator For Qt")
     width: 640
     height: 200
+    maximumHeight: 240
+    maximumWidth: width
+    minimumHeight: 200
+    minimumWidth: width
     visible: true
     menuBar: mainMenu
 
@@ -37,7 +42,15 @@ ApplicationWindow {
                 action: openTSFileAction
             }
             MenuItem {
+                action: selectOutputPathAction
+                visible: mainForm.isAdvancedMode
+            }
+            MenuItem {
                 action: generateStarEnglishAction
+            }
+            MenuSeparator {}
+            MenuItem {
+                action: showAdvancedOptionsAction
             }
             MenuSeparator {}
             MenuItem {
@@ -45,7 +58,7 @@ ApplicationWindow {
             }
         }
         Menu {
-            title: qsTr("&Help")
+            title: qsTr("H&elp")
 
             MenuItem {
                 action: helpAction
@@ -75,14 +88,14 @@ ApplicationWindow {
         id: helpAction
         text: qsTr("&Help")
         onTriggered: {
-
+            helpDialog.open()
         }
     }
     Action {
         id: aboutAction
-        text: qsTr("&About Star English Generator...")
+        text: qsTr("About &Star English Generator...")
         onTriggered: {
-
+            aboutDialog.open()
         }
     }
     Action {
@@ -92,12 +105,65 @@ ApplicationWindow {
             Qt.quit()
         }
     }
+    Action {
+        id: showAdvancedOptionsAction
+        text: checked ? qsTr("Hide &Advanced Options") : qsTr("Show &Advanced Options")
+        checkable: true
+    }
+    Action {
+        id: selectOutputPathAction
+        text: qsTr("Select &Output path")
+        onTriggered: {
+            openDirectoryDialog.open()
+        }
+    }
     MainForm {
         id: mainForm
         anchors.fill: parent
+        isAdvancedMode: showAdvancedOptionsAction.checked
         generateStarEnglishAction: generateStarEnglishAction
         openSourceTrasnlationFileAction: openTSFileAction
         sourceTrasnlationFile: generator.sourceFile
+        outputPath: generator.destinationPath
+        selectOutputPathAction: selectOutputPathAction
+        sourceTranslationFileMouseArea.onClicked: {
+            openTSFileAction.trigger()
+        }
+        outputPathClickableArea.onClicked: {
+            selectOutputPathAction.trigger()
+        }
+        states: [
+            State {
+                name: "AdvancedMode"
+                when: mainForm.isAdvancedMode
+
+                PropertyChanges {
+                    target: mainForm.outputPathLable
+                    opacity: 1.0
+                }
+                PropertyChanges {
+                    target: mainForm.outputPathInput
+                    opacity: 1.0
+                }
+                PropertyChanges {
+                    target: mainForm.gridLayout
+                    rows: 3
+                }
+                PropertyChanges {
+                    target: root
+                    height: 240
+                }
+                StateChangeScript {
+                    script: root.update()
+                }
+            }
+        ]
+        transitions: Transition {
+            NumberAnimation {
+                properties: "opacity,height"; easing.type: Easing.InOutQuad
+                duration: 250
+            }
+        }
     }
     FileDialog {
         id: openFileDialog
@@ -105,6 +171,51 @@ ApplicationWindow {
         nameFilters: ["Trasnlation Files (*.ts)", "All files (*)"]
         onAccepted: {
             generator.sourceFile = openFileDialog.fileUrl.toString().substring(8) // this removes the "file:///"
+        }
+    }
+    FileDialog {
+        id: openDirectoryDialog
+        title: qsTr("Choose an Output Directory")
+        selectFolder: true
+        onAccepted: {
+            generator.destinationPath = openDirectoryDialog.fileUrl.toString().substring(8) // this removes the "file:///"
+        }
+    }
+    MessageDialog {
+        id: messageDialog
+        title: qsTr("Star English Generator")
+
+        function show(caption) {
+            messageDialog.text = caption;
+            messageDialog.open();
+        }
+    }
+    AboutDialog {
+        id: aboutDialog
+        onHelp: {
+            console.log("S")
+            helpDialog.open()
+        }
+    }
+    Dialog {
+        id: helpDialog
+        title: qsTr("Help!")
+        standardButtons: StandardButton.Close
+        width: 400
+
+        Item {
+            implicitWidth: 400
+            implicitHeight: 150
+
+            Text {
+                font.pointSize: 12
+                anchors.left: parent.left
+                anchors.right: parent.right
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: qsTr("Sorry I don't have any help documentation yet.<br><br>
+                            Just know that the source file will remain unchanged unless you tell the tool to output to the same file
+                            when picking the output name/location.")
+            }
         }
     }
     StarEnglishGenerator {
@@ -115,15 +226,6 @@ ApplicationWindow {
             } else {
                 messageDialog.show( "The Star English Generation failed." )
             }
-        }
-    }
-    MessageDialog {
-        id: messageDialog
-        title: qsTr("Star English Generator")
-
-        function show(caption) {
-            messageDialog.text = caption;
-            messageDialog.open();
         }
     }
 }
