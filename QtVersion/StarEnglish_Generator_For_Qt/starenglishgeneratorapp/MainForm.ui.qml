@@ -45,7 +45,7 @@ Item {
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("This application is used to generate <b>Star English</b> translation files.")
+            text: qsTr("This application is used to generate <b>Star English</b> translation files.") + appLanguage.emptyString
             font.pointSize: root.pointSize
         }
         Item { width: 1; height: 10; }
@@ -61,7 +61,7 @@ Item {
                 rows: 2
 
                 Text {
-                    text: qsTr("Source Translation File: ")
+                    text: qsTr("Source Translation File: ") + appLanguage.emptyString
                     font.family: root.font
                     font.pointSize: root.pointSize
                 }
@@ -108,7 +108,7 @@ Item {
                 }
 
                 Text {
-                    text: qsTr("Output filename:")
+                    text: qsTr("Output filename:") + appLanguage.emptyString
                     font.pointSize: root.pointSize
                     font.family: root.font
                 }
@@ -132,7 +132,7 @@ Item {
 
                 Text {
                     id: outputPathLabel_internal
-                    text: qsTr("Output path: ")
+                    text: qsTr("Output path: ") + appLanguage.emptyString
                     font.family: root.font
                     font.pointSize: root.pointSize
                     opacity: 0

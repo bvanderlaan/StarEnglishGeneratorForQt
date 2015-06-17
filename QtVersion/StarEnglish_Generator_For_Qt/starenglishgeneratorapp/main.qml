@@ -22,7 +22,7 @@ import ca.imaginativethinking.translation 1.0
 
 ApplicationWindow {
     id: root
-    title: qsTr("Star English Generator For Qt")
+    title: qsTr("Star English Generator For Qt") + appLanguage.emptyString
     width: 640
     height: 200
     maximumHeight: 240
@@ -36,7 +36,7 @@ ApplicationWindow {
         id: mainMenu
 
         Menu {
-            title: qsTr("&File", "This is just showing how a context comment looks in the TS file.")
+            title: qsTr("&File", "This is just showing how a context comment looks in the TS file.") + appLanguage.emptyString
 
             MenuItem {
                 action: openTSFileAction
@@ -58,7 +58,17 @@ ApplicationWindow {
             }
         }
         Menu {
-            title: qsTr("H&elp")
+            title: qsTr("&Language") + appLanguage.emptyString
+
+            MenuItem {
+                action: selectEnglishAction
+            }
+            MenuItem {
+                action: selectStarEnglishAction
+            }
+        }
+        Menu {
+            title: qsTr("H&elp") + appLanguage.emptyString
 
             MenuItem {
                 action: helpAction
@@ -71,14 +81,14 @@ ApplicationWindow {
     }
     Action {
         id: openTSFileAction
-        text: qsTr("&Choose a Source Translation File")
+        text: qsTr("&Choose a Source Translation File") + appLanguage.emptyString
         onTriggered: {
             openFileDialog.open()
         }
     }
     Action {
         id: generateStarEnglishAction
-        text: qsTr("&Generate Star English Trasnlation File")
+        text: qsTr("&Generate Star English Trasnlation File") + appLanguage.emptyString
         onTriggered: {
             generator.destinationFile = mainForm.outputTrasnlationFile
             generator.generate()
@@ -86,35 +96,57 @@ ApplicationWindow {
     }
     Action {
         id: helpAction
-        text: qsTr("&Help")
+        text: qsTr("&Help") + appLanguage.emptyString
         onTriggered: {
             helpDialog.open()
         }
     }
     Action {
         id: aboutAction
-        text: qsTr("About &Star English Generator...")
+        text: qsTr("About &Star English Generator...") + appLanguage.emptyString
         onTriggered: {
             aboutDialog.open()
         }
     }
     Action {
         id: quitApplicationAction
-        text: qsTr("E&xit")
+        text: qsTr("E&xit") + appLanguage.emptyString
         onTriggered: {
             Qt.quit()
         }
     }
     Action {
         id: showAdvancedOptionsAction
-        text: checked ? qsTr("Hide &Advanced Options") : qsTr("Show &Advanced Options")
+        text: ( checked ? qsTr("Hide &Advanced Options") : qsTr("Show &Advanced Options") )  + appLanguage.emptyString
         checkable: true
     }
     Action {
         id: selectOutputPathAction
-        text: qsTr("Select &Output path")
+        text: qsTr("Select &Output path") + appLanguage.emptyString
         onTriggered: {
             openDirectoryDialog.open()
+        }
+    }
+    ExclusiveGroup {
+        id: languageExclusiveGroup
+    }
+    Action {
+        id: selectEnglishAction
+        text: "&1. English"
+        checkable: true
+        checked: true
+        exclusiveGroup: languageExclusiveGroup
+        onTriggered: {
+            appLanguage.loadLanguage("en")
+        }
+    }
+    Action {
+        id: selectStarEnglishAction
+        text: "&2. Star-English"
+        checkable: true
+        exclusiveGroup: languageExclusiveGroup
+        onTriggered: {
+            appLanguage.loadLanguage("fo")
         }
     }
     MainForm {
@@ -167,15 +199,15 @@ ApplicationWindow {
     }
     FileDialog {
         id: openFileDialog
-        title: qsTr("Choose a Translation File")
-        nameFilters: ["Trasnlation Files (*.ts)", "All files (*)"]
+        title: qsTr("Choose a Translation File") + appLanguage.emptyString
+        nameFilters: [ qsTr("Trasnlation Files (*.ts)"), qsTr("All files (*)")] + appLanguage.emptyString
         onAccepted: {
             generator.sourceFile = openFileDialog.fileUrl.toString().substring(8) // this removes the "file:///"
         }
     }
     FileDialog {
         id: openDirectoryDialog
-        title: qsTr("Choose an Output Directory")
+        title: qsTr("Choose an Output Directory") + appLanguage.emptyString
         selectFolder: true
         onAccepted: {
             generator.destinationPath = openDirectoryDialog.fileUrl.toString().substring(8) // this removes the "file:///"
@@ -183,7 +215,7 @@ ApplicationWindow {
     }
     MessageDialog {
         id: messageDialog
-        title: qsTr("Star English Generator")
+        title: qsTr("Star English Generator") + appLanguage.emptyString
 
         function show(caption) {
             messageDialog.text = caption;
@@ -193,13 +225,12 @@ ApplicationWindow {
     AboutDialog {
         id: aboutDialog
         onHelp: {
-            console.log("S")
             helpDialog.open()
         }
     }
     Dialog {
         id: helpDialog
-        title: qsTr("Help!")
+        title: qsTr("Help!") + appLanguage.emptyString
         standardButtons: StandardButton.Close
         width: 400
 
@@ -214,7 +245,7 @@ ApplicationWindow {
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 text: qsTr("Sorry I don't have any help documentation yet.<br><br>
                             Just know that the source file will remain unchanged unless you tell the tool to output to the same file
-                            when picking the output name/location.")
+                            when picking the output name/location.") + appLanguage.emptyString
             }
         }
     }
@@ -222,9 +253,9 @@ ApplicationWindow {
         id: generator
         onStarEnglishFileGenerationCompleted: {
             if ( isSuccess ) {
-                messageDialog.show( "The Star English Translation Source (TS) file has been generated." )
+                messageDialog.show( qsTr( "The Star English Translation Source (TS) file has been generated." ) )
             } else {
-                messageDialog.show( "The Star English Generation failed." )
+                messageDialog.show( qsTr( "The Star English Generation failed." ) )
             }
         }
     }

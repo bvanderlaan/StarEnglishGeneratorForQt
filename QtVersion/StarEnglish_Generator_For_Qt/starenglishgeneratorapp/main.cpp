@@ -16,8 +16,10 @@
 
 #include <QApplication>
 #include <QQmlApplicationEngine>
-#include "StarEnglishGeneratorModel.h"
+#include <QQmlContext>
 #include <QQuickItem>
+#include "StarEnglishGeneratorModel.h"
+#include "LanguageSelector.h"
 
 void registerQMLTypes()
 {
@@ -28,8 +30,12 @@ int main(int argc, char *argv[])
     registerQMLTypes();
     QApplication app(argc, argv);
 
+    ImaginativeThinking::Translation::LanguageSelector appLanguage;
+
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextProperty( "appLanguage", &appLanguage );
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
 
     return app.exec();
 }

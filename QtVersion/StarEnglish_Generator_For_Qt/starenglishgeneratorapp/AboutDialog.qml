@@ -19,7 +19,7 @@ import QtQuick.Dialogs 1.2
 
 Dialog {
     id: root
-    title: qsTr("About Star English Generator")
+    title: qsTr("About Star English Generator") + appLanguage.emptyString
     standardButtons: StandardButton.Close
     width: 660 // Documentaiton says not to do this but if I don't the dialog is way to thin.
 
@@ -36,7 +36,7 @@ Dialog {
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pointSize: 15
                 font.bold: true
-                text: qsTr("Star-English Generator for Qt")
+                text: qsTr("Star-English Generator for Qt") + appLanguage.emptyString
             }
             Rectangle {
                 anchors.left: parent.left
@@ -55,7 +55,7 @@ Dialog {
                 text: qsTr("This tool takes a Qt translation file (*.ts) and generates a new one inserting either
                             asterisks or a number of W's around each string to enable you to test your code for translation support.<br><br>
                             It is for use with the <a href=\"http://imaginativethinking.ca/heck-star-english\">Star-English</a>
-                            or <a href=\"http://imaginativethinking.ca/what-the-heck-is-long-english\">Long-English</a> technique.")
+                            or <a href=\"http://imaginativethinking.ca/what-the-heck-is-long-english\">Long-English</a> technique.") + appLanguage.emptyString
             }
             Item { width: 1; height: 10 }
             Text {
@@ -67,7 +67,7 @@ Dialog {
                 linkColor: color
                 onLinkActivated: Qt.openUrlExternally(link)
                 text: qsTr("This tool is Open Source Software released under the <a href=\"https://github.com/bvanderlaan/StarEnglishGeneratorForQt/blob/master/LICENSE.md\">Apache 2.0 license</a>.<br/><br/>
-                            If you want to make changes please clone the <a href=\"https://github.com/bvanderlaan/StarEnglishGeneratorForQt\">git repository</a>.")
+                            If you want to make changes please clone the <a href=\"https://github.com/bvanderlaan/StarEnglishGeneratorForQt\">git repository</a>.") + appLanguage.emptyString
             }
             Item { width: 1; height: 10 }
             Image {
@@ -81,7 +81,7 @@ Dialog {
                 textFormat: Text.StyledText
                 linkColor: color
                 onLinkActivated: Qt.openUrlExternally(link)
-                text: qsTr("Created by: <a href=\"http://bradvanderlaan.ca\"><b>Brad van der Laan</b></a>")
+                text: qsTr("Created by: <a href=\"http://bradvanderlaan.ca\"><b>Brad van der Laan</b></a>") + appLanguage.emptyString
             }
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -90,9 +90,8 @@ Dialog {
                 textFormat: Text.StyledText
                 linkColor: color
                 onLinkActivated: Qt.openUrlExternally(link)
-                text: qsTr("Copyright %1 ImaginativeThinking").arg(new Date().getFullYear())
+                text: qsTr("Copyright %1 ImaginativeThinking").arg(new Date().getFullYear()) + appLanguage.emptyString
             }
         }
     }
 }
-
