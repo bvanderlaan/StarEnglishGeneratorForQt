@@ -7,13 +7,17 @@ HEADERS += \
     StarEnglishGeneratorModel.h \
     LanguageSelector.h \
     TranslationGenerator.hpp \
-    LongEnglishGenerator.hpp
+    LongEnglishGenerator.hpp \
+    StarEnglishGenerationCommand.hpp \
+    BaseGenerationCommand.hpp
 
 SOURCES += \
     StarEnglishGenerator.cpp \
     StarEnglishGeneratorModel.cpp \
     LanguageSelector.cpp \
     TranslationGenerator.cpp \
-    LongEnglishGenerator.cpp
+    LongEnglishGenerator.cpp \
+    StarEnglishGenerationCommand.cpp \
+    BaseGenerationCommand.cpp
 
 QMAKE_CXXFLAGS += -std=c++0x

@@ -90,7 +90,7 @@ ApplicationWindow {
         id: generateStarEnglishAction
         text: qsTr("&Generate Star English Trasnlation File") + appLanguage.emptyString
         onTriggered: {
-            generator.destinationFile = mainForm.outputTrasnlationFile
+            starEnglishModel.destinationFile = mainForm.outputTrasnlationFile
             generator.generate()
         }
     }
@@ -155,8 +155,8 @@ ApplicationWindow {
         isAdvancedMode: showAdvancedOptionsAction.checked
         generateStarEnglishAction: generateStarEnglishAction
         openSourceTrasnlationFileAction: openTSFileAction
-        sourceTrasnlationFile: generator.sourceFile
-        outputPath: generator.destinationPath
+        sourceTrasnlationFile: starEnglishModel.sourceFile
+        outputPath: starEnglishModel.destinationPath
         selectOutputPathAction: selectOutputPathAction
         sourceTranslationFileMouseArea.onClicked: {
             openTSFileAction.trigger()
@@ -202,7 +202,7 @@ ApplicationWindow {
         title: qsTr("Choose a Translation File") + appLanguage.emptyString
         nameFilters: [ qsTr("Trasnlation Files (*.ts)"), qsTr("All files (*)")] + appLanguage.emptyString
         onAccepted: {
-            generator.sourceFile = openFileDialog.fileUrl.toString().substring(8) // this removes the "file:///"
+            starEnglishModel.sourceFile = openFileDialog.fileUrl.toString().substring(8) // this removes the "file:///"
         }
     }
     FileDialog {
@@ -210,7 +210,7 @@ ApplicationWindow {
         title: qsTr("Choose an Output Directory") + appLanguage.emptyString
         selectFolder: true
         onAccepted: {
-            generator.destinationPath = openDirectoryDialog.fileUrl.toString().substring(8) // this removes the "file:///"
+            starEnglishModel.destinationPath = openDirectoryDialog.fileUrl.toString().substring(8) // this removes the "file:///"
         }
     }
     MessageDialog {
@@ -249,9 +249,14 @@ ApplicationWindow {
             }
         }
     }
+    StarEnglishModel {
+        id: starEnglishModel
+    }
     StarEnglishGenerator {
         id: generator
-        onStarEnglishFileGenerationCompleted: {
+        sourceFile: starEnglishModel.sourceFileWithAbsolutePath
+        destinationFile: starEnglishModel.destinationFileWithAbsolutePath
+        onGenerationCompleted: {
             if ( isSuccess ) {
                 messageDialog.show( qsTr( "The Star English Translation Source (TS) file has been generated." ) )
             } else {

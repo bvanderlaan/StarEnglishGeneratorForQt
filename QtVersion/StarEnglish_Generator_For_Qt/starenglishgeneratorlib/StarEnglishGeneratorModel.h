@@ -24,48 +24,39 @@ namespace ImaginativeThinking
 {
     namespace Translation
     {
-        class StarEnglishGenerator;
         class StarEnglishGeneratorModel : public QObject
         {
             Q_OBJECT
             Q_PROPERTY( QString sourceFile READ getSourceFile WRITE setSourceFile NOTIFY sourceFileChanged )
+            Q_PROPERTY( QString sourceFileWithAbsolutePath READ getSourceFileWithAbsolutePath NOTIFY sourceFileChanged )
             Q_PROPERTY( QString destinationFile READ getDestinationFile WRITE setDestinationFile NOTIFY destinationFileChanged )
             Q_PROPERTY( QString destinationPath READ getDestinationPath WRITE setDestinationPath NOTIFY destinationFilePathChanged )
+            Q_PROPERTY( QString destinationFileWithAbsolutePath READ getDestinationFileWithAbsolutePath NOTIFY destinationAbsolutepathChanged )
         public:
             explicit StarEnglishGeneratorModel(QObject *parent = 0);
-            explicit StarEnglishGeneratorModel(StarEnglishGenerator* generator, QObject *parent = 0);
             virtual ~StarEnglishGeneratorModel(){}
 
+            QString getSourceFileWithAbsolutePath() const;
             QString getSourceFile() const;
             void setSourceFile( const QString& sourceFile );
+            QString getDestinationFileWithAbsolutePath() const;
             QString getDestinationFile() const;
             void setDestinationFile( QString destinationFile );
             QString getDestinationPath() const;
             void setDestinationPath( const QString& path );
-            bool doesDestinationFileExist() const;
-            bool doesSourceFileExist() const;
 
         signals:
             void sourceFileChanged( QString sourceFile );
             void destinationFileChanged( QString destinationFile );
             void destinationFilePathChanged( QString path );
-            void starEnglishFileGenerationCompleted( bool isSuccess );
-
-        public slots:
-            bool generate();
-
-        protected:
-            virtual bool doesFileExist( QFileInfo file ) const;
+            void destinationAbsolutepathChanged( QString fileAndPath );
 
         private:
             QFileInfo m_sourceFile;
             QString m_destinationFilename;
             QString m_destinationFilePath;
-            StarEnglishGenerator* m_generator;
 
             QString addFileExtensionIfNeeded( const QString& fileName ) const;
-            bool areSourceAndDestinationFilesValid() const;
-            bool isOkToOverwriteDestinationFile() const;
         };
     }
 }

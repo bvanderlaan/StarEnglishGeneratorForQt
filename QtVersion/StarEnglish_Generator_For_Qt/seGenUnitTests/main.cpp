@@ -20,6 +20,7 @@
 #include "StarEnglishGeneratorTestSuite.h"
 #include "StarEnglishGeneratorModelTestSuite.h"
 #include "LongEnglishGeneratorTestSuite.hpp"
+#include "StarEnglishGenerationCommandTestSuite.hpp"
 
 void displayMessage( int numOfTests, int numOfFailedTests )
 {
@@ -73,6 +74,7 @@ int main( int argc, char** argv )
    ASSERT_TEST( new ImaginativeThinking::Translation::UnitTest::StarEnglishGeneratorTestSuite() );
    ASSERT_TEST( new ImaginativeThinking::Translation::UnitTest::StarEnglishGeneratorModelTestSuite() );
    ASSERT_TEST( new ImaginativeThinking::Translation::UnitTest::LongEnglishGeneratorTestSuite() );
+   ASSERT_TEST( new ImaginativeThinking::Translation::UnitTest::StarEnglishGenerationCommandTestSuite() );
 
    displayMessage( numOfTests, numOfFailedTests );
    return numOfFailedTests;

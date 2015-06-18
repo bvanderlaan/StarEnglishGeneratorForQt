@@ -16,8 +16,6 @@
 
 #include "StarEnglishGeneratorModelTestSuite.h"
 #include "StarEnglishGeneratorModel.h"
-#include "StarEnglishGeneratorModelTester.h"
-#include "StarEnglishGeneratorFake.h"
 #include <QtTest/QTest>
 #include <QSignalSpy>
 
@@ -122,87 +120,20 @@ void StarEnglishGeneratorModelTestSuite::testSetDestinationFileToSameValue()
     int actualCount = spy.count();
     QVERIFY2( actualCount == expectedCount, QString("Expected [%1], Actual [%2]").arg(expectedCount).arg(actualCount).toStdString().c_str() );
 }
-void StarEnglishGeneratorModelTestSuite::testGeneratingStarEnglishFileWithInvalidSourceFile()
+void StarEnglishGeneratorModelTestSuite::testDestinationFileWithEmptyString()
 {
     StarEnglishGeneratorModel model;
-    QCOMPARE( model.getSourceFile().isEmpty(), true );
-    model.setDestinationFile( "starEnglish.ts" );
-    QSignalSpy starEnglishFileGenerationCompletedSpy( &model, SIGNAL(starEnglishFileGenerationCompleted(bool)));
+    model.setDestinationFile( "test.ts" );
+    QCOMPARE( model.getDestinationFile(), QString("test.ts") );
 
-    bool expected = false;
-    bool actual = model.generate();
+    QSignalSpy spy( &model, SIGNAL(destinationFileChanged(QString)));
+    model.setDestinationFile( "" );
+
+    QString expected = "";
+    QString actual = model.getDestinationFile();
     QCOMPARE ( actual, expected );
 
     int expectedCount = 1;
-    int actualCount = starEnglishFileGenerationCompletedSpy.count();
+    int actualCount = spy.count();
     QVERIFY2( actualCount == expectedCount, QString("Expected [%1], Actual [%2]").arg(expectedCount).arg(actualCount).toStdString().c_str() );
-
-    expected = false;
-    actual = starEnglishFileGenerationCompletedSpy.takeFirst().at(0).toBool();
-    QCOMPARE ( actual, expected );
 }
-void StarEnglishGeneratorModelTestSuite::testGeneratingStarEnglishFileWithInvalidDestinationFile()
-{
-    StarEnglishGeneratorModel model;
-    QCOMPARE( model.getDestinationFile().isEmpty(), true );
-    model.setSourceFile( "English.ts" );
-    QSignalSpy starEnglishFileGenerationCompletedSpy( &model, SIGNAL(starEnglishFileGenerationCompleted(bool)));
-
-    bool expected = false;
-    bool actual = model.generate();
-    QCOMPARE ( actual, expected );
-
-    int expectedCount = 1;
-    int actualCount = starEnglishFileGenerationCompletedSpy.count();
-    QVERIFY2( actualCount == expectedCount, QString("Expected [%1], Actual [%2]").arg(expectedCount).arg(actualCount).toStdString().c_str() );
-
-    expected = false;
-    actual = starEnglishFileGenerationCompletedSpy.takeFirst().at(0).toBool();
-    QCOMPARE ( actual, expected );
-}
-void StarEnglishGeneratorModelTestSuite::testGeneratingStarEnglishFile()
-{
-    auto fakeGenerator = new StarEnglishGeneratorFake();
-    fakeGenerator->m_generateReturnValue = true;
-
-    StarEnglishGeneratorModelTester model( fakeGenerator, this );
-    model.setSourceFile( "English.ts" );
-    model.setDestinationFile( "starEnglish.ts" );
-    QSignalSpy starEnglishFileGenerationCompletedSpy( &model, SIGNAL(starEnglishFileGenerationCompleted(bool)));
-
-    bool expected = true;
-    bool actual = model.generate();
-    QCOMPARE ( actual, expected );
-
-    int expectedCount = 1;
-    int actualCount = starEnglishFileGenerationCompletedSpy.count();
-    QVERIFY2( actualCount == expectedCount, QString("Expected [%1], Actual [%2]").arg(expectedCount).arg(actualCount).toStdString().c_str() );
-
-    expected = true;
-    actual = starEnglishFileGenerationCompletedSpy.takeFirst().at(0).toBool();
-    QCOMPARE ( actual, expected );
-}
-void StarEnglishGeneratorModelTestSuite::testGeneratingStarEnglishFileWithGeneratorError()
-{
-    auto fakeGenerator = new StarEnglishGeneratorFake();
-    fakeGenerator->m_generateReturnValue = false;
-
-    StarEnglishGeneratorModel model( fakeGenerator, this );
-    model.setSourceFile( "English.ts" );
-    model.setDestinationFile( "starEnglish.ts" );
-    QSignalSpy starEnglishFileGenerationCompletedSpy( &model, SIGNAL(starEnglishFileGenerationCompleted(bool)));
-
-    bool expected = false;
-    bool actual = model.generate();
-    QCOMPARE ( actual, expected );
-
-    int expectedCount = 1;
-    int actualCount = starEnglishFileGenerationCompletedSpy.count();
-    QVERIFY2( actualCount == expectedCount, QString("Expected [%1], Actual [%2]").arg(expectedCount).arg(actualCount).toStdString().c_str() );
-
-    expected = false;
-    actual = starEnglishFileGenerationCompletedSpy.takeFirst().at(0).toBool();
-    QCOMPARE ( actual, expected );
-}
-
-

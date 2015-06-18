@@ -23,10 +23,7 @@ namespace ImaginativeThinking
                 void testSetDestinationFile();
                 void testSetDestinationFileWithNoExtension();
                 void testSetDestinationFileToSameValue();
-                void testGeneratingStarEnglishFileWithInvalidSourceFile();
-                void testGeneratingStarEnglishFileWithInvalidDestinationFile();
-                void testGeneratingStarEnglishFile();
-                void testGeneratingStarEnglishFileWithGeneratorError();
+                void testDestinationFileWithEmptyString();
             };
         }
     }

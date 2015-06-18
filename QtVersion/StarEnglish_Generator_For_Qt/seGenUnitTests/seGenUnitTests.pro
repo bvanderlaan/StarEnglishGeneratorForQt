@@ -12,15 +12,17 @@ SOURCES += main.cpp \
     StarEnglishGeneratorTestSuite.cpp \
     StarEnglishGeneratorModelTestSuite.cpp \
     StarEnglishGeneratorFake.cpp \
-    StarEnglishGeneratorModelTester.cpp \
-    LongEnglishGeneratorTestSuite.cpp
+    LongEnglishGeneratorTestSuite.cpp \
+    StarEnglishGenerationCommandTestSuite.cpp \
+    StarEnglishGenerationCommandSkipIOCheck.cpp
 
 HEADERS += \
     StarEnglishGeneratorTestSuite.h \
     StarEnglishGeneratorModelTestSuite.h \
     StarEnglishGeneratorFake.h \
-    StarEnglishGeneratorModelTester.h \
-    LongEnglishGeneratorTestSuite.hpp
+    LongEnglishGeneratorTestSuite.hpp \
+    StarEnglishGenerationCommandTestSuite.hpp \
+    StarEnglishGenerationCommandSkipIOCheck.hpp
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 

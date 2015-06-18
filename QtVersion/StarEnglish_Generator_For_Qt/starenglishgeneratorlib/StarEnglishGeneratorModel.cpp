@@ -14,34 +14,30 @@
  * limitations under the License.
  */
 
-#include <QFile>
 #include <QDir>
-#include <QXmlStreamReader>
-#include <QXmlStreamWriter>
 #include "StarEnglishGeneratorModel.h"
-#include "StarEnglishGenerator.h"
-
-#include <QDebug>
 
 using namespace ImaginativeThinking::Translation;
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 StarEnglishGeneratorModel::StarEnglishGeneratorModel(QObject *parent) :
     QObject(parent)
 {
-    m_generator = new StarEnglishGenerator( this );
 }
 
-StarEnglishGeneratorModel::StarEnglishGeneratorModel(StarEnglishGenerator *generator, QObject *parent) :
-    QObject( parent ),
-    m_generator( generator )
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+QString StarEnglishGeneratorModel::getSourceFileWithAbsolutePath() const
 {
-    Q_ASSERT( m_generator != nullptr );
+    return m_sourceFile.absoluteFilePath();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 QString StarEnglishGeneratorModel::getSourceFile() const
 {
     return m_sourceFile.fileName();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 void StarEnglishGeneratorModel::setSourceFile(const QString &sourceFile)
 {
     if ( m_sourceFile.fileName() != sourceFile )
@@ -52,35 +48,54 @@ void StarEnglishGeneratorModel::setSourceFile(const QString &sourceFile)
        setDestinationPath( m_sourceFile.absolutePath() );
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+QString StarEnglishGeneratorModel::getDestinationFileWithAbsolutePath() const
+{
+    QFileInfo info( QDir(m_destinationFilePath), m_destinationFilename );
+    return info.absoluteFilePath();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 QString StarEnglishGeneratorModel::getDestinationFile() const
 {
     return m_destinationFilename;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 void StarEnglishGeneratorModel::setDestinationFile( QString destinationFile)
 {
     if ( !destinationFile.isEmpty() )
     {
         destinationFile = addFileExtensionIfNeeded( destinationFile );
-        if ( m_destinationFilename != destinationFile )
-        {
-            m_destinationFilename = destinationFile;
-            emit destinationFileChanged( destinationFile );
-        }
+    }
+
+    if ( m_destinationFilename != destinationFile )
+    {
+        m_destinationFilename = destinationFile;
+        emit destinationFileChanged( destinationFile );
+        emit destinationAbsolutepathChanged( this->getDestinationFileWithAbsolutePath() );
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 QString StarEnglishGeneratorModel::getDestinationPath() const
 {
     return m_destinationFilePath;
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 void StarEnglishGeneratorModel::setDestinationPath(const QString &path)
 {
     if ( m_destinationFilePath != path )
     {
         m_destinationFilePath = path;
         emit destinationFilePathChanged( m_destinationFilePath );
+        emit destinationAbsolutepathChanged( this->getDestinationFileWithAbsolutePath() );
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 QString StarEnglishGeneratorModel::addFileExtensionIfNeeded( const QString& fileName ) const
 {
     QString returnValue = fileName;
@@ -90,50 +105,4 @@ QString StarEnglishGeneratorModel::addFileExtensionIfNeeded( const QString& file
         returnValue += ".ts";
     }
     return returnValue;
-}
-bool StarEnglishGeneratorModel::generate()
-{
-    bool ret( false );
-
-    if ( areSourceAndDestinationFilesValid() )
-    {
-        if ( isOkToOverwriteDestinationFile() )
-        {
-            QFileInfo destinationFile( QDir( m_destinationFilePath ), m_destinationFilename );
-            QFile source( m_sourceFile.absoluteFilePath() );
-            QFile destination( destinationFile.absoluteFilePath() );
-
-            ret = m_generator->generate( &source, &destination );
-        }
-    }
-
-    emit starEnglishFileGenerationCompleted( ret );
-    return ret;
-}
-bool StarEnglishGeneratorModel::areSourceAndDestinationFilesValid() const
-{
-    return doesSourceFileExist() && !m_destinationFilename.isEmpty();
-}
-bool StarEnglishGeneratorModel::isOkToOverwriteDestinationFile() const
-{
-    bool ret( true );
-    if ( doesDestinationFileExist() )
-    {
-        //TODO
-        qDebug() << "file already exists, ask for permission to overwrite.";
-    }
-    return ret;
-}
-bool StarEnglishGeneratorModel::doesDestinationFileExist() const
-{
-    QFileInfo destinationFile( QDir( m_destinationFilePath ), m_destinationFilename );
-    return doesFileExist( destinationFile );
-}
-bool StarEnglishGeneratorModel::doesFileExist(QFileInfo file) const
-{
-    return file.exists();
-}
-bool StarEnglishGeneratorModel::doesSourceFileExist() const
-{
-    return doesFileExist( m_sourceFile );
 }
