@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-#include "StarEnglishGeneratorTestSuite.h"
-#include "StarEnglishGenerator.h"
+#include "LongEnglishGeneratorTestSuite.hpp"
+#include "LongEnglishGenerator.hpp"
 #include <QBuffer>
 #include <QtTest/QTest>
 
 using namespace ImaginativeThinking::Translation::UnitTest;
 using namespace ImaginativeThinking::Translation;
 
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishFileWithEmptySourceFile()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishFileWithEmptySourceFile()
 {
-   StarEnglishGenerator generator;
+   LongEnglishGenerator generator;
 
    QByteArray source;
    QByteArray destination;
@@ -39,9 +39,9 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishFileWithEmptySource
    int actualSize = destination.size();
    QVERIFY2( expectedSize == actualSize, QString("Expected [%1], Actual [%2]").arg(expectedSize).arg(actualSize).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishFileWithExistingDestinationFile()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishFileWithExistingDestinationFile()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -65,7 +65,7 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishFileWithExistingDes
                            " <context>"
                            " <message>"
                            " <source>HELLO WORLD</source>"
-                           " <translation>*HELLO WORLD*</translation>"
+                           " <translation>WWWWWHELLO WORLDWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
@@ -73,9 +73,9 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishFileWithExistingDes
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishFileWithNonExistingDestinationFile()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishFileWithNonExistingDestinationFile()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -99,16 +99,16 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishFileWithNonExisting
                            " <context>"
                            " <message>"
                            " <source>HELLO WORLD</source>"
-                           " <translation someOtherAttribute=\"true\">*HELLO WORLD*</translation>"
+                           " <translation someOtherAttribute=\"true\">WWWWWHELLO WORLDWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWhenEntryIsAlreadyTranslated()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishWhenEntryIsAlreadyTranslated()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -127,21 +127,21 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWhenEntryIsAlreadyT
     bool actual = generator.generate( &sourceIODevice, &destinationIODevice );
     QCOMPARE ( actual, expected );
 
-    // Notice that we kill the translation and replace it with Star English
+    // Notice that we kill the translation and replace it with Long English
     QString expectedData = "<TS language=\"fo_FO\">"
                            " <context>"
                            " <message>"
                            " <source>HELLO WORLD</source>"
-                           " <translation>*HELLO WORLD*</translation>"
+                           " <translation>WWWWWHELLO WORLDWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWhenTranslationAttributeNotUnfinished()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishWhenTranslationAttributeNotUnfinished()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -160,21 +160,21 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWhenTranslationAttr
     bool actual = generator.generate( &sourceIODevice, &destinationIODevice );
     QCOMPARE ( actual, expected );
 
-    // Notice that we kill the translation and replace it with Star English
+    // Notice that we kill the translation and replace it with Long English
     QString expectedData = "<TS language=\"fo_FO\">"
                            " <context>"
                            " <message>"
                            " <source>HELLO WORLD</source>"
-                           " <translation someOtherAttribute=\"true\">*HELLO WORLD*</translation>"
+                           " <translation someOtherAttribute=\"true\">WWWWWHELLO WORLDWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishMultipleContextMultipleMessages()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishMultipleContextMultipleMessages()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -211,21 +211,21 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishMultipleContextMult
                            " <context>"
                            " <message>"
                            " <source>HELLO WORLD</source>"
-                           " <translation>*HELLO WORLD*</translation>"
+                           " <translation>WWWWWHELLO WORLDWWWWW</translation>"
                            " </message>"
                            " <message>"
                            " <source>FU BAR</source>"
-                           " <translation>*FU BAR*</translation>"
+                           " <translation>WWWFU BARWWW</translation>"
                            " </message>"
                            " </context>"
                            " <context>"
                            " <message>"
                            " <source>Test Message</source>"
-                           " <translation>*Test Message*</translation>"
+                           " <translation>WWWWWWTest MessageWWWWWW</translation>"
                            " </message>"
                            " <message>"
                            " <source>One Two Three</source>"
-                           " <translation>*One Two Three*</translation>"
+                           " <translation>WWWWWWOne Two ThreeWWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
@@ -233,9 +233,9 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishMultipleContextMult
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithMissOrderedTags()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishWithMissOrderedTags()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -258,7 +258,7 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithMissOrderedTags
     QString expectedData = "<TS language=\"fo_FO\">"
                            " <context>"
                            " <message>"
-                           " <translation>*HELLO WORLD*</translation>"
+                           " <translation>WWWWWHELLO WORLDWWWWW</translation>"
                            " <source>HELLO WORLD</source>"
                            " </message>"
                            " </context>"
@@ -266,9 +266,9 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithMissOrderedTags
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithMalFormedXML()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishWithMalFormedXML()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("Hello World");
@@ -284,9 +284,9 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithMalFormedXML()
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithIncorrectXML()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishWithIncorrectXML()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -305,9 +305,9 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithIncorrectXML()
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorSwitchedTheLanguageTypeAttribute()
+void LongEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorSwitchedTheLanguageTypeAttribute()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fr_FR\">"
@@ -330,16 +330,16 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorSwitchedTheLan
                            " <context>"
                            " <message>"
                            " <source>HELLO WORLD</source>"
-                           " <translation>*HELLO WORLD*</translation>"
+                           " <translation>WWWWWHELLO WORLDWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsHTMLStrings()
+void LongEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsHTMLStrings()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -362,22 +362,22 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsHTMLStr
                            " <context>"
                            " <message>"
                            " <source>HELLO &lt;b>WORLD&lt;b></source>"
-                           " <translation>*HELLO &lt;b>WORLD&lt;b>*</translation>"
+                           " <translation>WWWWWHELLO &lt;b>WORLD&lt;b>WWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsTheLocationTagUsedByQML()
+void LongEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsTheLocationTagUsedByQML()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
                   "<context>"
                   "<message>"
-                  "<location filename=\"starenglishgeneratorapp/main.qml\" line=\"34\"/>"
+                  "<location filename=\"Longenglishgeneratorapp/main.qml\" line=\"34\"/>"
                   "<source>Hello World</source>"
                   "<translation type=\"unfinished\"></translation>"
                   "</message>"
@@ -395,9 +395,9 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsTheLoca
     QString expectedData = "<TS language=\"fo_FO\">"
                            " <context>"
                            " <message>"
-                           " <location line=\"34\" filename=\"starenglishgeneratorapp/main.qml\"/>"
+                           " <location line=\"34\" filename=\"Longenglishgeneratorapp/main.qml\"/>"
                            " <source>Hello World</source>"
-                           " <translation>*Hello World*</translation>"
+                           " <translation>WWWWWHello WorldWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
@@ -405,9 +405,9 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsTheLoca
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandlesContextComments()
+void LongEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandlesContextComments()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -432,16 +432,16 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandlesContext
                            " <message>"
                            " <source>&amp;File</source>"
                            " <comment>This is just showing how a context comment looks in the TS file.</comment>"
-                           " <translation>*&amp;File*</translation>"
+                           " <translation>WW&amp;FileWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsExtraComments()
+void LongEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsExtraComments()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -466,16 +466,16 @@ void StarEnglishGeneratorTestSuite::testToMakeSureThatTheGeneratorHandelsExtraCo
                            " <message>"
                            " <source>Hello World</source>"
                            " <extracomment>This is an example of an extra comment ment for the translator.</extracomment>"
-                           " <translation>*Hello World*</translation>"
+                           " <translation>WWWWWHello WorldWWWWW</translation>"
                            " </message>"
                            " </context>"
                            " </TS>";
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
-void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithNumerusFormSourceString()
+void LongEnglishGeneratorTestSuite::testGeneratingLongEnglishWithNumerusFormSourceString()
 {
-    StarEnglishGenerator generator;
+    LongEnglishGenerator generator;
 
     QByteArray source;
     source.append("<TS language=\"fo_FO\">"
@@ -502,8 +502,8 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithNumerusFormSour
                            " <message numerus=\"yes\">"
                            " <source>Month(s)</source>"
                            " <translation>"
-                           " <numerusform>*Month*</numerusform>"
-                           " <numerusform>*Months*</numerusform>"
+                           " <numerusform>WWMonthWW</numerusform>"
+                           " <numerusform>WWWMonthsWWW</numerusform>"
                            " </translation>"
                            " </message>"
                            " </context>"
