@@ -20,12 +20,14 @@
 #include <QQuickItem>
 #include "StarEnglishGeneratorModel.h"
 #include "StarEnglishGenerationCommand.hpp"
+#include "LongEnglishGenerationCommand.hpp"
 #include "LanguageSelector.h"
 
 void registerQMLTypes()
 {
     qmlRegisterType<ImaginativeThinking::Translation::StarEnglishGeneratorModel>("ca.imaginativethinking.translation", 1, 0, "StarEnglishModel" );
     qmlRegisterType<ImaginativeThinking::Translation::StarEnglishGenerationCommand>("ca.imaginativethinking.translation", 1, 0, "StarEnglishGenerator" );
+    qmlRegisterType<ImaginativeThinking::Translation::LongEnglishGenerationCommand>("ca.imaginativethinking.translation", 1, 0, "LongEnglishGenerator" );
 }
 int main(int argc, char *argv[])
 {

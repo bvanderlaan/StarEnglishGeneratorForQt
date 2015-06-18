@@ -9,7 +9,8 @@ HEADERS += \
     TranslationGenerator.hpp \
     LongEnglishGenerator.hpp \
     StarEnglishGenerationCommand.hpp \
-    BaseGenerationCommand.hpp
+    BaseGenerationCommand.hpp \
+    LongEnglishGenerationCommand.hpp
 
 SOURCES += \
     StarEnglishGenerator.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
     TranslationGenerator.cpp \
     LongEnglishGenerator.cpp \
     StarEnglishGenerationCommand.cpp \
-    BaseGenerationCommand.cpp
+    BaseGenerationCommand.cpp \
+    LongEnglishGenerationCommand.cpp
 
 QMAKE_CXXFLAGS += -std=c++0x

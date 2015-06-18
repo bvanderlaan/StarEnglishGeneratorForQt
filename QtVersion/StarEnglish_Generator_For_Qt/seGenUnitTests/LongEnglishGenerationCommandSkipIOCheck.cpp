@@ -14,22 +14,31 @@
  * limitations under the License.
  */
 
-#include "StarEnglishGeneratorFake.h"
+#include <QFileInfo>
+#include "LongEnglishGenerationCommandSkipIOCheck.hpp"
 
 using namespace ImaginativeThinking::Translation;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-StarEnglishGeneratorFake::StarEnglishGeneratorFake(QObject* parent) :
-    StarEnglishGenerator(parent),
-    m_generateReturnValue( false )
+LongEnglishGenerationCommandSkipIOCheck::LongEnglishGenerationCommandSkipIOCheck( QObject* parent ) :
+    LongEnglishGenerationCommand( parent ),
+    m_doesfileExist( true )
 {
 
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool StarEnglishGeneratorFake::generate( QIODevice *source, QIODevice* destination)
+LongEnglishGenerationCommandSkipIOCheck::LongEnglishGenerationCommandSkipIOCheck(TranslationGenerator* generator, QObject* parent) :
+    LongEnglishGenerationCommand( generator, parent ),
+    m_doesfileExist( true )
 {
-    Q_UNUSED( source );
-    Q_UNUSED( destination );
-    return m_generateReturnValue;
+
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool LongEnglishGenerationCommandSkipIOCheck::doesFileExist(QFileInfo file) const
+{
+    Q_UNUSED( file );
+    return m_doesfileExist;
+}
+

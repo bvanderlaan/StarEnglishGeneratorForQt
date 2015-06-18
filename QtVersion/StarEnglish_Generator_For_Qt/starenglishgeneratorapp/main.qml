@@ -46,7 +46,7 @@ ApplicationWindow {
                 visible: mainForm.isAdvancedMode
             }
             MenuItem {
-                action: generateStarEnglishAction
+                action: starEnglishModeAction.checked ? generateStarEnglishAction : generateLongEnglishAction
             }
             MenuSeparator {}
             MenuItem {
@@ -58,13 +58,23 @@ ApplicationWindow {
             }
         }
         Menu {
-            title: qsTr("&Language") + appLanguage.emptyString
+            title: qsTr("La&nguage") + appLanguage.emptyString
 
             MenuItem {
                 action: selectEnglishAction
             }
             MenuItem {
                 action: selectStarEnglishAction
+            }
+        }
+        Menu {
+            title: qsTr("&Mode") + appLanguage.emptyString
+
+            MenuItem {
+                action: starEnglishModeAction
+            }
+            MenuItem {
+                action: longEnglishModeAction
             }
         }
         Menu {
@@ -91,7 +101,15 @@ ApplicationWindow {
         text: qsTr("&Generate Star English Trasnlation File") + appLanguage.emptyString
         onTriggered: {
             starEnglishModel.destinationFile = mainForm.outputTrasnlationFile
-            generator.generate()
+            starEnglishGenerator.generate()
+        }
+    }
+    Action {
+        id: generateLongEnglishAction
+        text: qsTr("&Generate Long English Trasnlation File") + appLanguage.emptyString
+        onTriggered: {
+            starEnglishModel.destinationFile = mainForm.outputTrasnlationFile
+            longEnglishGenerator.generate()
         }
     }
     Action {
@@ -103,7 +121,7 @@ ApplicationWindow {
     }
     Action {
         id: aboutAction
-        text: qsTr("About &Star English Generator...") + appLanguage.emptyString
+        text: qsTr("&About Star English Generator...") + appLanguage.emptyString
         onTriggered: {
             aboutDialog.open()
         }
@@ -117,12 +135,12 @@ ApplicationWindow {
     }
     Action {
         id: showAdvancedOptionsAction
-        text: ( checked ? qsTr("Hide &Advanced Options") : qsTr("Show &Advanced Options") )  + appLanguage.emptyString
+        text: ( checked ? qsTr("Hide Advanced &Options") : qsTr("Show Advanced &Options") )  + appLanguage.emptyString
         checkable: true
     }
     Action {
         id: selectOutputPathAction
-        text: qsTr("Select &Output path") + appLanguage.emptyString
+        text: qsTr("Select Output &path") + appLanguage.emptyString
         onTriggered: {
             openDirectoryDialog.open()
         }
@@ -149,11 +167,28 @@ ApplicationWindow {
             appLanguage.loadLanguage("fo")
         }
     }
+    ExclusiveGroup {
+        id: modeExclusiveGroup
+    }
+    Action {
+        id: starEnglishModeAction
+        text: "&Star-English"
+        checkable: true
+        checked: true
+        exclusiveGroup: modeExclusiveGroup
+    }
+    Action {
+        id: longEnglishModeAction
+        text: "&Long-English"
+        checkable: true
+        exclusiveGroup: modeExclusiveGroup
+    }
     MainForm {
         id: mainForm
         anchors.fill: parent
+        headingText: qsTr("This application is used to generate <b>%1</b> translation files.").arg(modeExclusiveGroup.current.text.replace("&","")) + appLanguage.emptyString
         isAdvancedMode: showAdvancedOptionsAction.checked
-        generateStarEnglishAction: generateStarEnglishAction
+        generateStarEnglishAction: starEnglishModeAction.checked ? generateStarEnglishAction : generateLongEnglishAction
         openSourceTrasnlationFileAction: openTSFileAction
         sourceTrasnlationFile: starEnglishModel.sourceFile
         outputPath: starEnglishModel.destinationPath
@@ -253,7 +288,7 @@ ApplicationWindow {
         id: starEnglishModel
     }
     StarEnglishGenerator {
-        id: generator
+        id: starEnglishGenerator
         sourceFile: starEnglishModel.sourceFileWithAbsolutePath
         destinationFile: starEnglishModel.destinationFileWithAbsolutePath
         onGenerationCompleted: {
@@ -261,6 +296,18 @@ ApplicationWindow {
                 messageDialog.show( qsTr( "The Star English Translation Source (TS) file has been generated." ) )
             } else {
                 messageDialog.show( qsTr( "The Star English Generation failed." ) )
+            }
+        }
+    }
+    LongEnglishGenerator {
+        id: longEnglishGenerator
+        sourceFile: starEnglishModel.sourceFileWithAbsolutePath
+        destinationFile: starEnglishModel.destinationFileWithAbsolutePath
+        onGenerationCompleted: {
+            if ( isSuccess ) {
+                messageDialog.show( qsTr( "The Long English Translation Source (TS) file has been generated." ) )
+            } else {
+                messageDialog.show( qsTr( "The Long English Generation failed." ) )
             }
         }
     }

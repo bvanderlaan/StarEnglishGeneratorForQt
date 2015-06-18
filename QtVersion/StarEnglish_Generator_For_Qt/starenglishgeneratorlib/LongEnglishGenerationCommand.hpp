@@ -14,25 +14,32 @@
  * limitations under the License.
  */
 
-#ifndef STARENGLISHGENERATORFAKE_H
-#define STARENGLISHGENERATORFAKE_H
+#ifndef LONGENGLISHGENERATIONCOMMAND_HPP
+#define LONGENGLISHGENERATIONCOMMAND_HPP
 
-#include "StarEnglishGenerator.h"
+#include <QObject>
+#include "BaseGenerationCommand.hpp"
 
 namespace ImaginativeThinking
 {
     namespace Translation
     {
-        class StarEnglishGeneratorFake : public StarEnglishGenerator
+        class TranslationGenerator;
+        class LongEnglishGenerationCommand : public BaseGenerationCommand
         {
+            Q_OBJECT
         public:
-            explicit StarEnglishGeneratorFake(QObject* parent = nullptr);
-            virtual ~StarEnglishGeneratorFake(){}
+            explicit LongEnglishGenerationCommand(QObject *parent = 0);
+            explicit LongEnglishGenerationCommand(TranslationGenerator* generator, QObject *parent = 0);
+            virtual ~LongEnglishGenerationCommand() {}
 
-            bool generate(QIODevice *source, QIODevice* destination) override;
-            bool m_generateReturnValue;
+        public slots:
+            bool generate() override;
+
+        private:
+            TranslationGenerator* m_generator;
         };
     }
 }
 
-#endif // STARENGLISHGENERATORFAKE_H
+#endif // LONGENGLISHGENERATIONCOMMAND_HPP

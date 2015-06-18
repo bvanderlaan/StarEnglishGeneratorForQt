@@ -23,6 +23,7 @@ Item {
     width: 640
     height: 480
 
+    property alias headingText: heading.text
     property alias generateStarEnglishAction: generateStarEnglish.action
     property alias openSourceTrasnlationFileAction: openSourceTranslationFile.action
     property alias sourceTrasnlationFile: sourceTrasnlationFile.text
@@ -44,8 +45,8 @@ Item {
         spacing: 5
 
         Text {
+            id: heading
             anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("This application is used to generate <b>Star English</b> translation files.") + appLanguage.emptyString
             font.pointSize: root.pointSize
         }
         Item { width: 1; height: 10; }

@@ -14,25 +14,29 @@
  * limitations under the License.
  */
 
-#ifndef STARENGLISHGENERATORFAKE_H
-#define STARENGLISHGENERATORFAKE_H
+#ifndef LONGENGLISHGENERATIONCOMMANDSKIPIOCHECK_HPP
+#define LONGENGLISHGENERATIONCOMMANDSKIPIOCHECK_HPP
 
-#include "StarEnglishGenerator.h"
+#include "LongEnglishGenerationCommand.hpp"
 
 namespace ImaginativeThinking
 {
     namespace Translation
     {
-        class StarEnglishGeneratorFake : public StarEnglishGenerator
+        class LongEnglishGenerationCommandSkipIOCheck : public LongEnglishGenerationCommand
         {
+            Q_OBJECT
         public:
-            explicit StarEnglishGeneratorFake(QObject* parent = nullptr);
-            virtual ~StarEnglishGeneratorFake(){}
+            explicit LongEnglishGenerationCommandSkipIOCheck(QObject *parent = 0);
+            explicit LongEnglishGenerationCommandSkipIOCheck(TranslationGenerator* generator, QObject *parent = 0);
+            virtual ~LongEnglishGenerationCommandSkipIOCheck() {}
 
-            bool generate(QIODevice *source, QIODevice* destination) override;
-            bool m_generateReturnValue;
+            bool m_doesfileExist;
+
+        protected:
+            bool doesFileExist(QFileInfo file) const override;
         };
     }
 }
 
-#endif // STARENGLISHGENERATORFAKE_H
+#endif // LONGENGLISHGENERATIONCOMMANDSKIPIOCHECK_HPP
