@@ -42,8 +42,7 @@ It will update myApp_fo.ts to use Long-English strings and will save the origina
 
 ### The C++/Qt Version
 
-This tool presents you with an interface which allows to you pick the source translation file and the name/location for the generated [Star-English] output file.
-The source file will remain unchanged unless you tell the tool to output to the same file when picking the output name/location.
+This tool presents you with an interface which allows to you pick the source translation file and the name/location for the generated [Star-English] or [Long-English] output file.
 
 
 [website]: http://bradvanderlaan.ca
