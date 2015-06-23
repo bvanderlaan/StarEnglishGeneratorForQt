@@ -113,3 +113,27 @@ void LongEnglishGenerationCommandTestSuite::testGeneratingLongEnglishFileWithGen
     QCOMPARE ( actual, expected );
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+void LongEnglishGenerationCommandTestSuite::testGeneratingLongEnglishFileWhenSourceAndDestinationFilesAreTheSame()
+{
+    auto fakeGenerator = new LongEnglishGeneratorFake();
+    fakeGenerator->m_generateReturnValue = true;
+
+    LongEnglishGenerationCommandSkipIOCheck command( fakeGenerator, this );
+    command.setSourceFile( "English.ts" );
+    command.setDestinationFile( "ENGLISH.ts" );
+    QSignalSpy generationCompletedSpy( &command, SIGNAL(generationCompleted(bool)));
+
+    bool expected = false;
+    bool actual = command.generate();
+    QCOMPARE ( actual, expected );
+
+    int expectedCount = 1;
+    int actualCount = generationCompletedSpy.count();
+    QVERIFY2( actualCount == expectedCount, QString("Expected [%1], Actual [%2]").arg(expectedCount).arg(actualCount).toStdString().c_str() );
+
+    expected = false;
+    actual = generationCompletedSpy.takeFirst().at(0).toBool();
+    QCOMPARE ( actual, expected );
+}
+

@@ -112,3 +112,27 @@ void StarEnglishGenerationCommandTestSuite::testGeneratingStarEnglishFileWithGen
     actual = generationCompletedSpy.takeFirst().at(0).toBool();
     QCOMPARE ( actual, expected );
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+void StarEnglishGenerationCommandTestSuite::testGeneratingStarEnglishFileWhenSourceAndDestinationFilesAreTheSame()
+{
+    auto fakeGenerator = new StarEnglishGeneratorFake();
+    fakeGenerator->m_generateReturnValue = true;
+
+    StarEnglishGenerationCommandSkipIOCheck command( fakeGenerator, this );
+    command.setSourceFile( "English.ts" );
+    command.setDestinationFile( "ENGLISH.ts" );
+    QSignalSpy generationCompletedSpy( &command, SIGNAL(generationCompleted(bool)));
+
+    bool expected = false;
+    bool actual = command.generate();
+    QCOMPARE ( actual, expected );
+
+    int expectedCount = 1;
+    int actualCount = generationCompletedSpy.count();
+    QVERIFY2( actualCount == expectedCount, QString("Expected [%1], Actual [%2]").arg(expectedCount).arg(actualCount).toStdString().c_str() );
+
+    expected = false;
+    actual = generationCompletedSpy.takeFirst().at(0).toBool();
+    QCOMPARE ( actual, expected );
+}

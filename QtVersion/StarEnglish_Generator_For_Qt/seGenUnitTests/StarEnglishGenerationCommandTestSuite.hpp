@@ -37,6 +37,7 @@ namespace ImaginativeThinking
                 void testGeneratingStarEnglishFileWithInvalidDestinationFile();
                 void testGeneratingStarEnglishFile();
                 void testGeneratingStarEnglishFileWithGeneratorError();
+                void testGeneratingStarEnglishFileWhenSourceAndDestinationFilesAreTheSame();
             };
         }
     }

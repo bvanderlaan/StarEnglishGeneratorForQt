@@ -267,20 +267,21 @@ ApplicationWindow {
         id: helpDialog
         title: qsTr("Help!") + appLanguage.emptyString
         standardButtons: StandardButton.Close
-        width: 400
+        width: 500
 
         Item {
-            implicitWidth: 400
+            implicitWidth: 500
             implicitHeight: 150
 
             Text {
                 font.pointSize: 12
                 anchors.left: parent.left
                 anchors.right: parent.right
+                anchors.margins: 10
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 text: qsTr("Sorry I don't have any help documentation yet.<br><br>
-                            Just know that the source file will remain unchanged unless you tell the tool to output to the same file
-                            when picking the output name/location.") + appLanguage.emptyString
+                            Just know that the source file will remain unchanged and that the output name can not be
+                            the same as the source file as you can't read and write to the same file.") + appLanguage.emptyString
             }
         }
     }

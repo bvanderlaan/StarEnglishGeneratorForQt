@@ -37,6 +37,7 @@ namespace ImaginativeThinking
                 void testGeneratingLongEnglishFileWithInvalidDestinationFile();
                 void testGeneratingLongEnglishFile();
                 void testGeneratingLongEnglishFileWithGeneratorError();
+                void testGeneratingLongEnglishFileWhenSourceAndDestinationFilesAreTheSame();
             };
         }
     }

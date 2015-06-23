@@ -62,7 +62,7 @@ void BaseGenerationCommand::setDestinationFile(const QString& file)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool BaseGenerationCommand::areSourceAndDestinationFilesValid() const
 {
-    return doesSourceFileExist() && !m_destinationFile.isEmpty();
+    return doesSourceFileExist() && !m_destinationFile.isEmpty() && ( m_sourceFile.compare( m_destinationFile, Qt::CaseInsensitive ) != 0 );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

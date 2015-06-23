@@ -61,6 +61,7 @@ void TranslationGenerator::setLanguageCode(const QString& code)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool TranslationGenerator::generate( QIODevice* source, QIODevice* destination )
 {
+    bool ret( false );
     if ( isSourceFileValid( source ) )
     {
         if ( openSourceAndDestinationFiles( source, destination ) )
@@ -68,11 +69,15 @@ bool TranslationGenerator::generate( QIODevice* source, QIODevice* destination )
             m_sourceDocument = new QDomDocument();
             if ( openSourceDom( source ) )
             {
-                QTextStream writer( destination );
-                if ( processSourceFile() )
-                {
-                    writer << m_sourceDocument->toString();
+                { // destination does not have a size until after QTextStream goes out of scope
+                    QTextStream writer( destination );
+                    if ( processSourceFile() )
+                    {
+                        writer << m_sourceDocument->toString();
+                    }
                 }
+
+                ret = ( destination->size() > 0 );
             }
 
             delete m_sourceDocument;
@@ -82,7 +87,7 @@ bool TranslationGenerator::generate( QIODevice* source, QIODevice* destination )
             destination->close();
         }
     }
-    return ( destination->size() > 0 );
+    return ret;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +101,7 @@ bool TranslationGenerator::openSourceAndDestinationFiles(QIODevice* source, QIOD
 {
     bool filesOpen = source->open( QIODevice::ReadOnly | QIODevice::Text );
     filesOpen &= destination->open( QIODevice::WriteOnly | QIODevice::Text );
+
     return filesOpen;
 }
 
