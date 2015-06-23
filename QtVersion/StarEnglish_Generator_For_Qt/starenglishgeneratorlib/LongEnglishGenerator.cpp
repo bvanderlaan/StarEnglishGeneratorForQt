@@ -47,7 +47,11 @@ void LongEnglishGenerator::setLongEnglishCharacter(const QChar& character)
 QString LongEnglishGenerator::translateText(const QString& sourceText) const
 {
     QString longEnglishMarker = getLongEnglishMarker( sourceText );
-    return QString( "%1%2%3" ).arg(longEnglishMarker).arg(sourceText).arg(longEnglishMarker);
+
+    QString copy( sourceText );
+    copy.prepend(longEnglishMarker);
+    copy.append(longEnglishMarker);
+    return copy;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

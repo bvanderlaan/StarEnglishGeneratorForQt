@@ -131,29 +131,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="starenglishgeneratorapp/main.qml" line="281"/>
+        <location filename="starenglishgeneratorapp/main.qml" line="282"/>
         <source>Sorry I don&apos;t have any help documentation yet.&lt;br&gt;&lt;br&gt;
-                            Just know that the source file will remain unchanged unless you tell the tool to output to the same file
-                            when picking the output name/location.</source>
+                            Just know that the source file will remain unchanged and that the output name can not be
+                            the same as the source file as you can&apos;t read and write to the same file.</source>
+        <oldsource>Sorry I don&apos;t have any help documentation yet.&lt;br&gt;&lt;br&gt;
+                            Just know that the source file will remain unchanged and that the output name can not be
+                            the same as the source file as you can&apos;t read and write to the same file.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="starenglishgeneratorapp/main.qml" line="296"/>
+        <location filename="starenglishgeneratorapp/main.qml" line="297"/>
         <source>The Star English Translation Source (TS) file has been generated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="starenglishgeneratorapp/main.qml" line="298"/>
+        <location filename="starenglishgeneratorapp/main.qml" line="299"/>
         <source>The Star English Generation failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="starenglishgeneratorapp/main.qml" line="308"/>
+        <location filename="starenglishgeneratorapp/main.qml" line="309"/>
         <source>The Long English Translation Source (TS) file has been generated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="starenglishgeneratorapp/main.qml" line="310"/>
+        <location filename="starenglishgeneratorapp/main.qml" line="311"/>
         <source>The Long English Generation failed.</source>
         <translation type="unfinished"></translation>
     </message>

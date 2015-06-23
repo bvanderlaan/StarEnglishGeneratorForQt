@@ -44,6 +44,9 @@ void StarEnglishGenerator::setStarEnglishCharacter(const QString& character)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 QString StarEnglishGenerator::translateText( const QString& sourceText ) const
 {
-    return QString( "%1%2%3" ).arg(m_starEnglishCharacter).arg(sourceText).arg(m_starEnglishCharacter);
+    QString copy( sourceText );
+    copy.prepend(m_starEnglishCharacter);
+    copy.append(m_starEnglishCharacter);
+    return copy;
 }
 

@@ -47,6 +47,8 @@ namespace ImaginativeThinking
                 void testToMakeSureThatTheGeneratorHandlesContextComments();
                 void testToMakeSureThatTheGeneratorHandelsExtraComments();
                 void testGeneratingLongEnglishWithNumerusFormSourceString();
+                void testGeneratingLongEnglishWithArgumentPlaceHolders();
+                void testGeneratingLongEnglishWithAltShortcutMarkers();
             };
         }
     }

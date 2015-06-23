@@ -511,3 +511,65 @@ void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithNumerusFormSour
     QString actualData = QString(destination).simplified();
     QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
 }
+void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithArgumentPlaceHolders()
+{
+    StarEnglishGenerator generator;
+
+    QByteArray source;
+    source.append("<TS language=\"fo_FO\">"
+                  "<context>"
+                  "<message>"
+                  "<source>Copyright %1 ImaginativeThinking</source>"
+                  "</message>"
+                  "</context>"
+                  "</TS>");
+    QByteArray destination;
+    QBuffer sourceIODevice( &source );
+    QBuffer destinationIODevice( &destination );
+
+    bool expected = true;
+    bool actual = generator.generate( &sourceIODevice, &destinationIODevice );
+    QCOMPARE ( actual, expected );
+
+    QString expectedData = "<TS language=\"fo_FO\">"
+                           " <context>"
+                           " <message>"
+                           " <source>Copyright %1 ImaginativeThinking</source>"
+                           " <translation>*Copyright %1 ImaginativeThinking*</translation>"
+                           " </message>"
+                           " </context>"
+                           " </TS>";
+    QString actualData = QString(destination).simplified();
+    QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
+}
+void StarEnglishGeneratorTestSuite::testGeneratingStarEnglishWithAltShortCutMarkers()
+{
+    StarEnglishGenerator generator;
+
+    QByteArray source;
+    source.append("<TS language=\"fo_FO\">"
+                  "<context>"
+                  "<message>"
+                  "<source>&amp;File</source>"
+                  "</message>"
+                  "</context>"
+                  "</TS>");
+    QByteArray destination;
+    QBuffer sourceIODevice( &source );
+    QBuffer destinationIODevice( &destination );
+
+    bool expected = true;
+    bool actual = generator.generate( &sourceIODevice, &destinationIODevice );
+    QCOMPARE ( actual, expected );
+
+    QString expectedData = "<TS language=\"fo_FO\">"
+                           " <context>"
+                           " <message>"
+                           " <source>&amp;File</source>"
+                           " <translation>*&amp;File*</translation>"
+                           " </message>"
+                           " </context>"
+                           " </TS>";
+    QString actualData = QString(destination).simplified();
+    QVERIFY2( expectedData.compare(actualData, Qt::CaseInsensitive) == 0, QString("\nExpected [%1], \nActual [%2]").arg(expectedData).arg(actualData).toStdString().c_str() );
+}
